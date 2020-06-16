@@ -1,1 +1,0 @@
-# jacklgreenberg.com
