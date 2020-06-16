@@ -1,0 +1,10 @@
+{
+    "title": "{{ .Title }}",
+    "date": "{{ .Date }}",
+    "year": "{{ .Params.Year }}",
+    "draft": "{{ .Params.Draft }}",
+    "featured": "{{ .Params.Featured }}",
+    "image": "{{ .Params.Image }}",
+    "permalink" : "{{ .Permalink }}",
+    "content" : {{ .RawContent | jsonify }}
+}

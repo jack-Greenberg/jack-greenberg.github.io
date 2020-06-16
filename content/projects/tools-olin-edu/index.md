@@ -1,0 +1,39 @@
+---
+title: "Tools.Olin"
+date: 2020-05-14T15:55:50-07:00
+year: 2020
+draft: false
+featured: false
+---
+
+During the spring of 2020, I worked for the machine shop at Olin to design and build a new web application to manage tool training. The shop at Olin has lots of offerings, from mills and lathes to 3D printers and laser cutters, and all of them have a training that you must go through to be authorized to use the tool.
+
+The platform that I built provides students and staff a way to sign up for trainings and keep track of their progress, and would allow the machine shop staff to approve trainees and keep tabs on who is authorized to use which tools.
+
+For the app I used a software stack I've grown to love: Flask for the back-end and routing, ReactJS for the front-end, and PostgresQL+SQLAlchemy for a database and middleware. I've grown comfortable with this stack, and find it quite powerful.
+
+The main feature of the site is a single page application that acts as a checklist for students training on a given machine:
+
+{{<figure
+    src="images/checklist.png"
+    caption="Mobile view of lathe training checklist."
+>}}
+
+For trainees, it allows you to track your progress, but provides little more than resources and a display. The view is more functional for trainers, or NINJAs[^1]. NINJAs have the power to check off the different boxes, provided that the student has completed the task to the satisfaction and training standards of the shop.
+
+[^1]: _Need Info Now, Just Ask_: Olin's version of course/shop assistants
+
+One big feature that the shop requested was better accountability of who does what in trainings, and so the application back-end contains a logging system that keeps track of who trained who on what machine at what time. This helps the shop staff keep track of trainings, and if someone has made a mistake, they know who to ask for clarification.
+
+All administration tasks are accessible from another single page application for admins:
+
+{{<figure
+    src="images/admin.png"
+    caption="Admin view that allows administrators to add trainers."
+>}}
+
+Features of the admin interface include the ability to assign other admins and trainers, export logs targeted to specific tools, trainees, and trainers, and update the tools and training documents.
+
+## Current Status
+
+Having been ordered to evacuate campus, the work I did on the site was cut short. I had hoped to continue on it during the summer, but circumstances prevented it. When I return next to campus, I will complete work on the site.

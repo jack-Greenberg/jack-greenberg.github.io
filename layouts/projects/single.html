@@ -1,0 +1,27 @@
+{{ define "title" }}
+    {{ .Site.Title }} | {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="canvas">
+    <div class="Page">
+        {{ partial "header" . }}
+        <div class="footer__wrapper">
+            <a href="/projects" class="backlink">&lt; Back to projects</a>
+            <main class="Content">
+                {{ if .Params.draft }}<span class="draft-label">Draft</span>{{ end }}
+                <h1>
+                    {{ .Title }}
+                    {{ if .Params.image }}
+                    <img class="project-image" src="{{ .Params.image }}" />
+                    {{ end }}
+                </h1>
+
+                <!-- Markdown -->
+                {{ .Content }}
+            </main>
+            {{ partial "footer" . }}
+        </div>
+    </div>
+</div>
+{{ end }}

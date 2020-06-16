@@ -1,0 +1,22 @@
+{{ define "title" }}
+    {{ .Site.Title }} | {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="canvas">
+    <div class="Page">
+        {{ partial "header" . }}
+        <div class="footer__wrapper">
+            <main class="Content">
+                <h1>
+                    {{ .Title }}
+                </h1>
+
+                <!-- Markdown -->
+                {{ .Content }}
+            </main>
+            {{ partial "footer" . }}
+        </div>
+    </div>
+</div>
+{{ end }}

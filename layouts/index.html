@@ -1,0 +1,29 @@
+{{ define "title" }}
+    {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="canvas">
+    <div class="homepage-flex-container  homepage  page-main">
+        {{ partial "nav" . }}
+        <main class="index-main">
+            <div class="site-image">
+                <img src="images/illustration.png" />
+            </div>
+            <div class="banner">
+                <h1 class="banner__title">
+                    {{ .Title }}
+                </h1>
+                <h2 class="banner__subtitle">
+                    {{ .Site.Params.subtitle }}
+                </h2>
+                <p class="banner__description">
+                    I’m an engineering student at <a href="http://www.olin.edu">Olin College of Engineering</a> in Needham, MA. I’m passionate about embedded software and electrical design. I also play jazz bass.
+                </p>
+            </div>
+
+            {{ partial "footer" . }}
+        </main>
+    </div>
+</div>
+{{ end }}

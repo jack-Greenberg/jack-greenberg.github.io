@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>
+    Jack Greenberg | NEATO Gauntlet
+</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        
+        
+
+        <link rel="stylesheet" href="/index.min.e4015ff9b57dc691b296446772f15ec9bc1a334fa9a0092c7798a8c660c6a331.css">
+    </head>
+
+    <body>
+        
+<div class="canvas">
+    <div class="Page">
+        <header class="Header">
+    <p class="Header__title">
+        <a href="/">Jack Greenberg</a>
+    </p>
+    <label for="nav-trigger" class="nav-trigger">[]</label>
+<input type="checkbox" id="nav-trigger" />
+<nav class="nav">
+    <label for="nav-trigger" class="nav-overlay"></label>
+    <ul class="nav__list">
+        <li class="nav__list__link">
+            <a href="/projects">Projects</a>
+        </li>
+        <li class="nav__list__link">
+            <a href="/about">About</a>
+        </li>
+        <li class="nav__list__link">
+            <a href="/documents/resume.pdf">Resume</a>
+        </li>
+    </ul>
+</nav>
+
+</header>
+
+        <div class="footer__wrapper">
+            <a href="/projects" class="backlink">&lt; Back to projects</a>
+            <main class="Content">
+                
+                <h1>
+                    NEATO Gauntlet
+                    
+                    <img class="project-image" src="images/gauntlet-contour.svg" />
+                    
+                </h1>
+
+                
+                <p>The objective of this project (the final of my Olin class <em>Quantitative Engineering Analysis</em>) was to navigate a simulated Roomba-like robot through a world called <strong>The Gauntlet</strong>, avoiding obstacles (boxes) until finally reaching the goal (cylinder).</p>
+<figure>
+    <img src="images/gauntlet.png"
+         alt="The Gauntlet"/> <figcaption>
+            <p>The Gauntlet</p>
+        </figcaption>
+</figure>
+
+<h2 id="the-code">The Code</h2>
+<h3 id="ransac">RANSAC</h3>
+<p>The RANSAC, or <em>Random Sample Consensus</em> algorithm is a method of identifying features from a dataset. It works by selecting a set of points and fitting a model to them. The algorithm then separates the original dataset into a set of <em>inliers</em>, which are points that fall within a threshold <em>d</em> of the model, and a set of <em>outliers</em>. The process is repeated <em>n</em> times until the algorithm has determined the best fit of the model, and outputs that.</p>
+<p>At this point, RANSAC has output a single feature with a given set of inliers, and so it runs again with the leftover outliers to identify a second set of features, and then a third, and so on, until it has identified all the major features of the data.</p>
+<h4 id="fitting-lines">Fitting Lines</h4>
+<p>To fit a line, the algorithm chooses two points:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">points</span> <span class="p">=</span> <span class="n">datasample</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;Replace&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<span class="n">P1</span> <span class="p">=</span> <span class="n">points</span><span class="p">(</span><span class="mi">1</span><span class="p">,:);</span> <span class="n">P2</span> <span class="p">=</span> <span class="n">points</span><span class="p">(</span><span class="mi">2</span><span class="p">,:);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It calculates the vector between these two points and its orthogonal vector, and then for every other point in the dataset, it performs the dot product of the point and the unit orthogonal vector to get the perpendicular distance from the point to the line formed by <code>P1</code> and <code>P2</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">V</span> <span class="p">=</span> <span class="n">P2</span> <span class="o">-</span> <span class="n">P1</span><span class="p">;</span>
+<span class="n">V_unit</span> <span class="p">=</span> <span class="n">V</span><span class="o">./</span><span class="n">norm</span><span class="p">(</span><span class="n">V</span><span class="p">);</span>
+<span class="n">V_Orth</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">V</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">)];</span>
+<span class="n">V_Orth_unit</span> <span class="p">=</span> <span class="n">V_Orth</span><span class="o">./</span><span class="n">norm</span><span class="p">(</span><span class="n">V_orth</span><span class="p">);</span>
+
+<span class="n">perpendicular_distances</span> <span class="p">=</span> <span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">P2</span><span class="p">)</span> <span class="o">*</span> <span class="n">V_Orth_unit</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">inliers</span> <span class="p">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">perpendicular_distances</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">;</span> <span class="c">% d is the threshold distance for inliers</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It also finds the biggest gap in the our model, because if it is too big, it should be discarded:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">biggest_gap</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">diff</span><span class="p">(</span><span class="n">sort</span><span class="p">(</span><span class="n">diffs</span><span class="p">(</span><span class="n">inliers</span><span class="p">,:)</span> <span class="o">*</span> <span class="n">V_unit</span><span class="o">&#39;</span><span class="p">)));</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="fitting-circles">Fitting Circles</h4>
+<p>Fitting circles is more challenging. When fitting lines, it is easy to just find the perpendicular distance from any point to that line, but with circles, I needed to be more clever.</p>
+<p>A circle can be defined by three points, so the algorithm chooses 3 points from the dataset and splits them in <em>x</em> and <em>y</em> components:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">points</span> <span class="p">=</span> <span class="n">datasample</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;Replace&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<span class="n">Px</span> <span class="p">=</span> <span class="n">points</span><span class="p">(:,</span><span class="mi">1</span><span class="p">);</span> <span class="n">Py</span> <span class="p">=</span> <span class="n">points</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It then runs a linear regression in the form of a linear systems of equations to solve for the coefficients of the circle in general form:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">Px</span><span class="p">))];</span>
+<span class="n">B</span>  <span class="p">=</span> <span class="o">-</span><span class="n">Px</span><span class="o">.^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">Py</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">c</span> <span class="p">=</span> <span class="n">A</span> <span class="o">\</span> <span class="n">B</span><span class="p">;</span>
+
+<span class="c">% x_c and y_c are the x and y components of the circle&#39;s center</span>
+<span class="n">x_c</span> <span class="p">=</span> <span class="o">-</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">y_c</span> <span class="p">=</span> <span class="o">-</span><span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="c">% r is the radius of the circle</span>
+<span class="n">r</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">x_c</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yc</span><span class="o">.^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">w</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Once it has the center and radius of the circle, it calculates the distance from any point to the circle by finding the distance to the center of the circle, and subtracts the radius to get the distance from the edge of the circle:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">distance</span> <span class="p">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">((</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">x_c</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_c</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">r</span><span class="p">);</span>
+<span class="n">inliers</span> <span class="p">=</span> <span class="p">(</span><span class="n">distance</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>There are two issues that initially came up with this implementation:</p>
+<ol>
+<li>The algorithm would sometimes treat straight lines as arcs of circles with <em><strong>huge</strong></em> radii, on the scale of 10<!-- raw HTML omitted -->6<!-- raw HTML omitted -->, and</li>
+<li>The circle would identify right angles as arcs of a circle.</li>
+</ol>
+<p>To solve the first issue, since I knew the approximate size of the circle, I ruled out models with radii too far from the goal. That part was easier. The second issue required some more ingenuity.</p>
+<p>In theory, if a set of data points fit a model, then any subset of those points would fit the same model just as well. I used this fact to solve the right-angle fitting issue by performing the RANSAC circle detector once more on the set of inliers generated the first time. If the original fit of a circle was <em>correct</em>, then the center and radius of the new circle will be roughly the same. However, if it is a right angle, it is more likely that the center of the newly generated circle will be significantly different than the original, so we can rule it out as a circle.</p>
+<h3 id="generating-vector-fields">Generating Vector Fields</h3>
+<p>Now that I had a set of boundaries and a goal from our dataset, I needed a way to generate a map that the NEATO can follow. For this challenge, I implemented a vector field/gradient descent algorithm to have the NEATO navigate the gauntlet. To generate the map, I used the equation:</p>
+<div  class="math">
+    <p>
+        
+        <img src="https://render.githubusercontent.com/render/math?math=z%20%3d%20ln%20%5csqrt%7b%28x-x_n%29%5e%7b2%7d%2b%28y-y_n%29%5e%7b2%7d%7d"
+             alt="z = ln \sqrt{(x-x_n)^{2}&#43;(y-y_n)^{2}}"
+        />
+    </p>
+</div>
+
+<p>I added multiple of these terms together to generate a composite map of the NEATO&rsquo;s surroundings. If the term is <em>positive</em>, then we get a &ldquo;sink&rdquo;, and if the term is <em>negative</em> we get a &ldquo;source&rdquo;. When it comes time for the NEATO to choose a path with gradient descent, it will be attraced to the sinks and repelled from the sources.</p>
+<p>I took three different approaches to generating the sinks and sources. First, I just use the end points of the best fit lines as sources and the center of the circle as sinks. The issue with this was that on big lines, the NEATO would find paths through the middle of a wall, and would then collide with said wall.</p>
+<p>The next thing I tried was having <em>n</em> points between the two endpoints of every line and making each of those sources. The problem there was in the density of sources. Longer lines, like the boundary of the Gauntlet, would have points spaced out every .25 meters, but short lines like the edge of a box would have points spaced out every .025 meters. This was an issue because boundaries need to all have the same weights or else the ones with less weight/density will be treated as acceptable for finding paths.</p>
+<p>The final, successful, approach I took was instead calculating the length of the lines and generating a set of equally spaced points along the line to create sources. For the circle, I found equally spaced points around the circumference.</p>
+<p>The final equation was:</p>
+<p>&hellip;complicated. I like to embed mathematics with <!-- raw HTML omitted -->, as you will see above. I knew the equation had a lot of sources and sinks (around 20,000), so instead of manually writing it all out, I wrote a Python script to automate it for me. In <a href="https://github.com/jack-greenberg/qea-gauntlet/blob/master/mathtex.py">mathtex.py</a> I import all the sources and sinks from CSV files and process them into LaTeX. My thinking was that I would then copy the result into Overleaf, a LaTeX compiler, but when I tried pasting into Overleaf, it said there was an error, and then my browser crashed. If you&rsquo;d like to view the raw LaTeX, you can run <code>python3 mathtex.py</code> or you can look at the CSV files to see the points for yourself.</p>
+<h3 id="gradient-descent">Gradient Descent</h3>
+<p>After I generated the equation, it was time to get the NEATO to actually move. In order to do this, I used a <em>gradient descent</em> method. The algorithm works by assessing the current position of the NEATO using ROS&rsquo;s <code>/odom</code> topic (which gets the position of the NEATO and it&rsquo;s orientation in the form of a quarternion), rotating in the opposite direction of the gradient vector at its current point, and then moving along some proportion of the length of the gradient vector.</p>
+<p>The equation to calculate the next point is:</p>
+<div  class="math">
+    <p>
+        
+        <img src="https://render.githubusercontent.com/render/math?math=r_%7bn%2b1%7d%20%3d%20r_%7bn%7d%20-%20%5clambda_%7bn%7d%20%5ccdot%20%5cnabla%20V"
+             alt="r_{n&#43;1} = r_{n} - \lambda_{n} \cdot \nabla V"
+        />
+    </p>
+</div>
+
+<p>where <!-- raw HTML omitted --> is a scalar and determined by <!-- raw HTML omitted --> and <!-- raw HTML omitted --> is some scalar. The code to make the NEATO rotate is as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span>theta<span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="k">global</span> <span class="n">pubvel</span> <span class="n">message</span> <span class="n">stopMessage</span>
+    <span class="c">% pubvel is the ROS publisher for /raw-vel</span>
+    <span class="c">% message is a ROS Message used for sending wheel speeds</span>
+    <span class="c">% stopMessage is a ROS Message with wheel speeds of 0 used to</span>
+    <span class="c">%   stop the NEATO</span>
+
+    <span class="n">wheel_speed</span> <span class="p">=</span> <span class="p">.</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">wheel_base</span> <span class="p">=</span> <span class="mf">0.235</span><span class="p">;</span> <span class="c">% Distance between the NEATO&#39;s wheels</span>
+
+	<span class="c">% To make the NEATO rotate, we get the sign of the angle and multiply the</span>
+	<span class="c">% left wheel by -1 to make the wheels rotate in opposite directions.</span>
+    <span class="n">message</span><span class="p">.</span><span class="n">Data</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nb">sign</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">wheel_speed</span><span class="p">,</span> <span class="nb">sign</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">wheel_speed</span><span class="p">];</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">pubvel</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+
+	<span class="c">% This next chunk uses the elapsed time from the start with the NEATO&#39;s</span>
+	<span class="c">% angular velocity to determine when to stop.</span>
+    <span class="n">start</span> <span class="p">=</span> <span class="n">rostime</span><span class="p">(</span><span class="s">&#39;now&#39;</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">current</span> <span class="p">=</span> <span class="n">rostime</span><span class="p">(</span><span class="s">&#39;now&#39;</span><span class="p">);</span>
+        <span class="n">elapsed</span> <span class="p">=</span> <span class="n">current</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="n">elapsed</span><span class="p">.</span><span class="n">seconds</span> <span class="o">&gt;</span><span class="p">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">theta</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">wheel_speed</span> <span class="o">/</span> <span class="n">wheel_base</span><span class="p">))</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">pubvel</span><span class="p">,</span> <span class="n">stopMessage</span><span class="p">);</span>
+            <span class="k">break</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The code for making the NEATO travel in a straight line is very similar, except the wheels rotate in the same direction:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span><span class="nf">travel</span><span class="p">(</span>distance<span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="k">global</span> <span class="n">pubvel</span> <span class="n">message</span> <span class="n">stopMessage</span> <span class="n">bump_sub</span>
+
+    <span class="n">wheel_speed</span> <span class="p">=</span> <span class="p">.</span><span class="mi">2</span><span class="p">;</span>
+
+    <span class="n">message</span><span class="p">.</span><span class="n">Data</span> <span class="p">=</span> <span class="p">[</span><span class="n">wheel_speed</span><span class="p">,</span> <span class="n">wheel_speed</span><span class="p">];</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">pubvel</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+
+	<span class="n">start</span> <span class="p">=</span> <span class="n">rostime</span><span class="p">(</span><span class="s">&#39;now&#39;</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">current</span> <span class="p">=</span> <span class="n">rostime</span><span class="p">(</span><span class="s">&#39;now&#39;</span><span class="p">);</span>
+        <span class="n">elapsed</span> <span class="p">=</span> <span class="n">current</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+
+        <span class="c">% A bump sensor tells the NEATO to stop if it bumps into something.</span>
+        <span class="n">bumpMessage</span> <span class="p">=</span> <span class="n">receive</span><span class="p">(</span><span class="n">bump_sub</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">any</span><span class="p">(</span><span class="n">bumpMessage</span><span class="p">.</span><span class="n">Data</span><span class="p">)</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">pubvel</span><span class="p">,</span> <span class="n">stopMessage</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">end</span>
+
+
+        <span class="k">if</span> <span class="n">elapsed</span><span class="p">.</span><span class="n">seconds</span> <span class="o">&gt;</span><span class="p">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">distance</span><span class="o">/</span><span class="n">wheel_speed</span><span class="p">)</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">pubvel</span><span class="p">,</span> <span class="n">stopMessage</span><span class="p">);</span>
+            <span class="k">break</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In the end, the NEATO took approximately 45 seconds to reach its goal. It&rsquo;s slowness is due in part to the slow wheel velocity of 0.2 m/s, and in part because it was doing so much computational work in between each movement.</p>
+<h2 id="final-video">Final Video</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/NQd-fZsqmDU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+            </main>
+            <footer class="footer">
+    <nav>
+        <ul>
+            <li><a href="https://github.com/jack-greenberg">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/jack-greenberg-664722146/">LinkedIn</a></li>
+            <li><a href="https://instagram.com/greenberg__">Instagram</a></li>
+        </ul>
+    </nav>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

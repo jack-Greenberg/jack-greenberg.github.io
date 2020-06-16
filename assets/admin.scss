@@ -1,0 +1,67 @@
+// .Admin {
+//     position: relative;
+// }
+//
+// .AdminPage {
+//
+// }
+//
+// .AdminSidebar {
+//     display: none;
+//     background-color: #232323;
+//     min-height: 100vh;
+//     width: 30%;
+//     position: absolute;
+//     right: 0;
+//     max-width: 10em;
+//
+//     .sidebar-trigger__checkbox:checked ~ & {
+//         display: block;
+//     }
+//
+//     &__nav {
+//
+//         ul {
+//
+//             li {
+//                 color: white;
+//
+//                 a {
+//                     @include reset-a;
+//                 }
+//             }
+//         }
+//     }
+// }
+// .sidebar-trigger {
+//
+//     &__checkbox {
+//         display: none;
+//     }
+//     &__button {
+//         cursor: pointer;
+//
+//         span {
+//             position: absolute;
+//             top: 0;
+//             right: 0;
+//             padding: .5em;
+//         }
+//         svg {
+//             width: 1.75em;
+//             height: 1.75em;
+//             stroke-linecap: square;
+//         }
+//         input:checked ~ & {
+//             width: 100vw;
+//             height: 100vh;
+//
+//             & > &--menu {
+//                 display: none;
+//             }
+//         }
+//         input:not(:checked) ~ & > &--x {
+//             display: none;
+//         }
+//     }
+// }
