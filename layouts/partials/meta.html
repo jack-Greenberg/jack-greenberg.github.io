@@ -21,3 +21,9 @@
 <meta property="twitter:title" content="{{ .Site.Title }}">
 <meta property="twitter:description" content="{{ .Site.Params.description }}">
 <meta property="twitter:image" content="{{ $og_image.Permalink | relURL }}">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ resources.Get "favicons/apple-touch-icon.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ resources.Get "favicons/favicon-32x32.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ resources.Get "favicons/favicon-16x16.png" | relURL }}">
+<link rel="manifest" href="{{ resources.Get "favicons/site.webmanifest" | relURL }}">
