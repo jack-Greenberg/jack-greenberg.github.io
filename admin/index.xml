@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Admin on Jack Greenberg</title>
-    <link>https://www.jackgreenberg.co/admin/</link>
-    <description>Recent content in Admin on Jack Greenberg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Copyright © 2020, Jack Greenberg; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 14 May 2020 18:50:36 -0700</lastBuildDate>
-    
-	<atom:link href="https://www.jackgreenberg.co/admin/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Admin on Jack Greenberg</title><link>https://www.jackgreenberg.co/admin/</link><description>Recent content in Admin on Jack Greenberg</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Copyright © 2020, Jack Greenberg; all rights reserved.</copyright><lastBuildDate>Thu, 14 May 2020 18:50:36 -0700</lastBuildDate><atom:link href="https://www.jackgreenberg.co/admin/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
