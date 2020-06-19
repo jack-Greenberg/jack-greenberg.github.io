@@ -2,31 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jack Greenberg</title>
-    <link>https://jacklgreenberg.com/</link>
+    <link>https://www.jackgreenberg.co/</link>
     <description>Recent content on Jack Greenberg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Copyright © 2020, Jack Greenberg; all rights reserved.</copyright>
     <lastBuildDate>Thu, 14 May 2020 18:50:36 -0700</lastBuildDate>
     
-	<atom:link href="https://jacklgreenberg.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.jackgreenberg.co/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tools.Olin</title>
-      <link>https://jacklgreenberg.com/projects/tools-olin-edu/index.json</link>
+      <link>https://www.jackgreenberg.co/projects/tools-olin-edu/index.json</link>
       <pubDate>Thu, 14 May 2020 15:55:50 -0700</pubDate>
       
-      <guid>https://jacklgreenberg.com/projects/tools-olin-edu/index.json</guid>
+      <guid>https://www.jackgreenberg.co/projects/tools-olin-edu/index.json</guid>
       <description>During the spring of 2020, I worked for the machine shop at Olin to design and build a new web application to manage tool training. The shop at Olin has lots of offerings, from mills and lathes to 3D printers and laser cutters, and all of them have a training that you must go through to be authorized to use the tool.
 The platform that I built provides students and staff a way to sign up for trainings and keep track of their progress, and would allow the machine shop staff to approve trainees and keep tabs on who is authorized to use which tools.</description>
     </item>
     
     <item>
       <title>NEATO Gauntlet</title>
-      <link>https://jacklgreenberg.com/projects/neato-gauntlet/index.json</link>
+      <link>https://www.jackgreenberg.co/projects/neato-gauntlet/index.json</link>
       <pubDate>Wed, 13 May 2020 20:20:30 -0700</pubDate>
       
-      <guid>https://jacklgreenberg.com/projects/neato-gauntlet/index.json</guid>
+      <guid>https://www.jackgreenberg.co/projects/neato-gauntlet/index.json</guid>
       <description>The objective of this project (the final of my Olin class Quantitative Engineering Analysis) was to navigate a simulated Roomba-like robot through a world called The Gauntlet, avoiding obstacles (boxes) until finally reaching the goal (cylinder).
   The Gauntlet
   The Code RANSAC The RANSAC, or Random Sample Consensus algorithm is a method of identifying features from a dataset. It works by selecting a set of points and fitting a model to them.</description>
@@ -34,29 +35,29 @@ The platform that I built provides students and staff a way to sign up for train
     
     <item>
       <title>I2C2</title>
-      <link>https://jacklgreenberg.com/projects/i2c2/index.json</link>
+      <link>https://www.jackgreenberg.co/projects/i2c2/index.json</link>
       <pubDate>Mon, 11 May 2020 20:43:04 -0700</pubDate>
       
-      <guid>https://jacklgreenberg.com/projects/i2c2/index.json</guid>
+      <guid>https://www.jackgreenberg.co/projects/i2c2/index.json</guid>
       <description>&lt;p&gt;I wrote an implementation of the I2C protocol (inter-integrated chip) in C. I learned a lot about writing and debugging embedded firmware.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BSPD Brakelight Circuit</title>
-      <link>https://jacklgreenberg.com/projects/bspd/index.json</link>
+      <link>https://www.jackgreenberg.co/projects/bspd/index.json</link>
       <pubDate>Mon, 11 May 2020 18:20:30 -0700</pubDate>
       
-      <guid>https://jacklgreenberg.com/projects/bspd/index.json</guid>
+      <guid>https://www.jackgreenberg.co/projects/bspd/index.json</guid>
       <description>My first project for Olin Electric Motorsports was redesigning the mission-critical brake system plausibility device. The analog circuit controls one node of the shutdown circuit on the car, helping to ensure the safety of the driver and vehicle.
 How to PCB The final deliverable for this project was a PCB, or printed circuit board, which would slot into the car&amp;rsquo;s low voltage box. Along with performing a critical safety check for the electrical systems during racing, the circuit also handles the brakelight by reading an analog signal from a brake pressure sensor.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://jacklgreenberg.com/about/index.json</link>
+      <link>https://www.jackgreenberg.co/about/index.json</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jacklgreenberg.com/about/index.json</guid>
+      <guid>https://www.jackgreenberg.co/about/index.json</guid>
       <description>Hi there! My name is Jack Greenberg. I am an engineering student at Olin College of Arts and Crafts Engineering, studying electrical and computer engineering. My passions lie in firmware/embedded systems and electrical design, and I also am quite fond of web development.
 At Olin I am an electrical design lead for the Formula SAE team, Olin Electric Motorsports, and I am working for the machine shop to build a brand new website to manage machine trainings.</description>
     </item>

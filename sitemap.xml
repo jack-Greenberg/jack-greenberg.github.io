@@ -3,50 +3,70 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jacklgreenberg.com/admin/</loc>
+    <loc>https://www.jackgreenberg.co/admin/</loc>
     <lastmod>2020-05-14T18:50:36-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/</loc>
+    <loc>https://www.jackgreenberg.co/</loc>
     <lastmod>2020-05-14T18:50:36-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/projects/</loc>
+    <loc>https://www.jackgreenberg.co/projects/</loc>
     <lastmod>2020-05-14T15:55:50-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/projects/tools-olin-edu/</loc>
+    <loc>https://www.jackgreenberg.co/projects/tools-olin-edu/</loc>
     <lastmod>2020-05-14T15:55:50-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/projects/neato-gauntlet/</loc>
+    <loc>https://www.jackgreenberg.co/projects/neato-gauntlet/</loc>
     <lastmod>2020-05-13T20:20:30-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/projects/i2c2/</loc>
+    <loc>https://www.jackgreenberg.co/projects/i2c2/</loc>
     <lastmod>2020-05-11T20:43:04-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/projects/bspd/</loc>
+    <loc>https://www.jackgreenberg.co/projects/bspd/</loc>
     <lastmod>2020-05-11T18:20:30-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/about/</loc>
+    <loc>https://www.jackgreenberg.co/about/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/categories/</loc>
+    <loc>https://www.jackgreenberg.co/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jacklgreenberg.com/tags/</loc>
+    <loc>https://www.jackgreenberg.co/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

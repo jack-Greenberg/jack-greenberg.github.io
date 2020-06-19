@@ -2,12 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Jack Greenberg</title>
-    <link>https://jacklgreenberg.com/categories/</link>
+    <link>https://www.jackgreenberg.co/categories/</link>
     <description>Recent content in Categories on Jack Greenberg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Copyright © 2020, Jack Greenberg; all rights reserved.</copyright>
     
-	<atom:link href="https://jacklgreenberg.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.jackgreenberg.co/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

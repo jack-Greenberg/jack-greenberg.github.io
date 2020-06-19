@@ -1,0 +1,126 @@
+// Styles just used for the homepage page
+
+// Large image
+/*
+ * The height technique is also used in nav.scss. It ensures that the
+ * top margin of the nav has an offset equal to the homepage image,
+ * so that it can be centered with the .banner
+ */
+.site-image {
+    height: map-get($image-size, small);
+
+    @media only screen and (min-width: 400px) {
+        height: map-get($image-size, medium);
+    }
+    @media only screen and (min-width: 700px) {
+        height: map-get($image-size, large);
+    }
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+@media only screen and (min-height: 800px) {
+    .page-main {
+        padding-top: 20vh;
+    }
+}
+
+.index-main {
+    padding: 1em;
+    max-width: 30em;
+    margin: 0 auto;
+
+    @media only screen and (min-width: 400px) {
+        font-size: 1.2em;
+    }
+    @media only screen and (min-width: 700px) {
+        font-size: 1.3em;
+        max-width: 40em;
+        margin: 0;
+        padding: 0;
+
+        .banner {
+            border-right: 3px solid $fg;
+            max-width: unset;
+            padding-right: 2em;
+        }
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 1.6em;
+    }
+    @media only screen and (min-width: 1200px) {
+        font-size: 1.8em;
+    }
+    .banner {
+        margin-top: 2rem; // This value is also set in the top margin of the nav for the index page
+
+        &__title {
+            font-size: 2.5em;
+            font-family: $sans;
+            font-weight: 600;
+            color: $main;
+            margin-bottom: .5rem;
+        }
+        &__subtitle {
+            font-size: 1.25em;
+            font-family: $sans;
+            font-weight: 500;
+            color: $main;
+            margin-bottom: 1.5rem;
+
+            @media only screen and (min-width: 700px) {
+                font-size: .8em;
+            }
+        }
+        &__description {
+            font-size: .825em;
+            font-family: $mono;
+            color: $fg;
+            width: 80%;
+
+            a {
+                color: $accent;
+                transition: color .2s, background-color .2s;
+                padding: .2em .3em;
+                margin: -.2em -.3em;
+
+                &:hover {
+                    background-color: rgba(#172a45, .7);
+                }
+            }
+
+            @media only screen and (min-width: 700px) {
+                font-size: .6em;
+                max-width: 30em;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .homepage-flex-container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+
+        .nav {
+            font-size: 1.25em;
+            align-self: center;
+            margin-top: calc(#{map-get($image-size, large)} + 2rem); // The 2rem comes from the top margin of .banner
+            padding-left: 2em;
+        }
+    }
+}
+
+.homepage .nav__list {
+    font-size: 1.5em;
+
+    @media only screen and (min-width: 700px) {
+        font-size: 1em;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 1.2em;
+    }
+}
