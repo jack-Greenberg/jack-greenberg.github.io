@@ -1,18 +1,19 @@
-baseURL: https://jacklgreenberg.com
+baseURL: https://www.jackgreenberg.co
 languageCode: en-us
 title: Jack Greenberg
-
+author: Jack Greenberg
+copyright: "Copyright © 2020, Jack Greenberg; all rights reserved."
+enableEmoji: true
+enableRobotsTXT: true
+email: j@jacklgreenberg.com
+assetDir: static
 params:
   name: Jack Greenberg
   email: j@jacklgreenberg.com
   subtitle: Electrical and Firmware Engineer
-
+  description: The portfolio and personal website for Jack Greenberg. I'm an electrical and firmware engineer studying at Olin College of Engineering.
 markup:
   highlight:
-    codeFences: true
-    guessSyntax: false
-    hl_Lines:
-    lineNoStart: 1
     lineNos: true
     lineNumbersInTable: true
     noClasses: false
@@ -21,7 +22,6 @@ markup:
   goldmark:
     extensions:
       footnote: true
-
 outputs:
   page:
     - json
@@ -30,3 +30,10 @@ outputs:
 privacy:
   youtube:
     privacyenhanced: true
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+disableKinds:
+- taxonomy
+- taxonomyTerm
