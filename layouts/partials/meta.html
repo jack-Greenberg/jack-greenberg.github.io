@@ -1,0 +1,23 @@
+<meta name="title" content="{{ .Site.Title }}">
+<meta name="description" content="{{ .Site.Params.description }}">
+
+<!-- Google / Search Engine Tags -->
+<meta itemprop="name" content="{{ .Site.Title }}">
+<meta itemprop="description" content="{{ .Site.Params.description }}">
+{{ $image := resources.Get "images/portrait.png" }}
+{{ $og_image := $image.Resize "600x" }}
+<meta itemprop="image" content="{{ $og_image.Permalink | relURL }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Site.BaseURL }}">
+<meta property="og:title" content="{{ .Site.Title }}">
+<meta property="og:description" content="{{ .Site.Params.description }}">
+<meta property="og:image" content="{{ $og_image.Permalink | relURL }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ .Site.BaseURL }}">
+<meta property="twitter:title" content="{{ .Site.Title }}">
+<meta property="twitter:description" content="{{ .Site.Params.description }}">
+<meta property="twitter:image" content="{{ $og_image.Permalink | relURL }}">

@@ -2,21 +2,17 @@
 <html lang="{{ .Site.LanguageCode }}">
     <head>
         <meta charset="utf-8">
-        <title>{{ block "title" . }}
-
-        {{ end }}</title>
+        <title>{{ block "title" . }}{{ end }}</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{ partial "meta" . }}
 
-        {{ $styles := resources.Get "index.scss" | toCSS | minify | fingerprint }}
+        {{ $styles := resources.Get "css/index.scss" | toCSS | minify | fingerprint }}
         {{ $style := $styles | resources.ToCSS }}
-
         <link rel="stylesheet" href="{{ $style.Permalink | relURL }}">
     </head>
 
     <body>
-        {{ block "main" . }}
-
-        {{ end }}
+        {{ block "main" . }}{{ end }}
     </body>
 </html>
