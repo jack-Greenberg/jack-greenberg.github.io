@@ -1,8 +1,0 @@
-<div {{ with .Get "class" }} class="{{ . }}"{{ end }}>
-    <p>
-        {{ $math := .Get "content" }}
-        <img src="https://render.githubusercontent.com/render/math?math={{ $math }}"
-             alt="{{ $math }}"
-        />
-    </p>
-</div>

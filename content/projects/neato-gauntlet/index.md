@@ -97,10 +97,9 @@ In theory, if a set of data points fit a model, then any subset of those points 
 
 Now that I had a set of boundaries and a goal from our dataset, I needed a way to generate a map that the NEATO can follow. For this challenge, I implemented a vector field/gradient descent algorithm to have the NEATO navigate the gauntlet. To generate the map, I used the equation:
 
-{{<math
-    class="math"
-    content="z = ln \sqrt{(x-x_n)^{2}+(y-y_n)^{2}}"
->}}
+{{<katex display >}}
+z = ln \sqrt{(x-x_n)^{2}+(y-y_n)^{2}}
+{{</katex>}}
 
 I added multiple of these terms together to generate a composite map of the NEATO's surroundings. If the term is *positive*, then we get a "sink", and if the term is *negative* we get a "source". When it comes time for the NEATO to choose a path with gradient descent, it will be attraced to the sinks and repelled from the sources.
 
@@ -112,15 +111,7 @@ The final, successful, approach I took was instead calculating the length of the
 
 The final equation was:
 
-
-
-
-
-
-
-
-
-...complicated. I like to embed mathematics with <img src="https://i.stack.imgur.com/t5VF4.png" height="16px" />, as you will see above. I knew the equation had a lot of sources and sinks (around 20,000), so instead of manually writing it all out, I wrote a Python script to automate it for me. In [mathtex.py](https://github.com/jack-greenberg/qea-gauntlet/blob/master/mathtex.py) I import all the sources and sinks from CSV files and process them into LaTeX. My thinking was that I would then copy the result into Overleaf, a LaTeX compiler, but when I tried pasting into Overleaf, it said there was an error, and then my browser crashed. If you'd like to view the raw LaTeX, you can run `python3 mathtex.py` or you can look at the CSV files to see the points for yourself.
+...complicated. I like to embed mathematics with {{<katex>}}{\KaTeX}{{</katex>}}, as you will see above. I knew the equation had a lot of sources and sinks (around 20,000), so instead of manually writing it all out, I wrote a Python script to automate it for me. In [mathtex.py](https://github.com/jack-greenberg/qea-gauntlet/blob/master/mathtex.py) I import all the sources and sinks from CSV files and process them into LaTeX. My thinking was that I would then copy the result into Overleaf, a LaTeX compiler, but when I tried pasting into Overleaf, it said there was an error, and then my browser crashed. If you'd like to view the raw LaTeX, you can run `python3 mathtex.py` or you can look at the CSV files to see the points for yourself.
 
 
 
@@ -130,12 +121,11 @@ After I generated the equation, it was time to get the NEATO to actually move. I
 
 The equation to calculate the next point is:
 
-{{< math
-    class="math"
-    content="r_{n+1} = r_{n} - \lambda_{n} \cdot \nabla V"
->}}
+{{<katex display >}}
+r_{n+1} = r_{n} - \lambda_{n} \cdot \nabla V
+{{</katex>}}
 
-where <img src="https://render.githubusercontent.com/render/math?math=\lambda_{n}"> is a scalar and determined by <img src="https://render.githubusercontent.com/render/math?math=\lambda_{n%2b1} = \delta \lambda_{n}"> and <img src="https://render.githubusercontent.com/render/math?math=\delta"> is some scalar. The code to make the NEATO rotate is as follows:
+where {{<katex>}} \lambda_{n} {{</katex>}} is a scalar and determined by {{<katex>}}\lambda_{n-1} = \delta \lambda_{n}{{</katex>}} and {{<katex>}}\delta{{</katex>}} is some scalar. The code to make the NEATO rotate is as follows:
 
 ```matlab
 function rotate(theta)

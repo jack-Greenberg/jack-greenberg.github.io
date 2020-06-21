@@ -28,6 +28,7 @@ outputs:
     - html
   section:
     - json
+    - html
 privacy:
   youtube:
     privacyenhanced: true
