@@ -692,14 +692,9 @@ button {
   display: block;
   text-align: center; }
 
-.Content .math {
-  text-align: center; }
-
-.Content .math img {
-  filter: invert(1);
-  max-width: 100%;
-  width: unset;
-  box-sizing: initial; }
+.Content .katex {
+  text-align: center;
+  color: #b1bbd9; }
 
 .Content section.footnotes hr {
   margin-bottom: 1em; }
@@ -1022,14 +1017,9 @@ button {
   display: block;
   text-align: center; }
 
-.Feature__summary .math {
-  text-align: center; }
-
-.Feature__summary .math img {
-  filter: invert(1);
-  max-width: 100%;
-  width: unset;
-  box-sizing: initial; }
+.Feature__summary .katex {
+  text-align: center;
+  color: #b1bbd9; }
 
 .Feature__summary section.footnotes hr {
   margin-bottom: 1em; }
@@ -1657,14 +1647,9 @@ button {
   display: block;
   text-align: center; }
 
-.Content .math {
-  text-align: center; }
-
-.Content .math img {
-  filter: invert(1);
-  max-width: 100%;
-  width: unset;
-  box-sizing: initial; }
+.Content .katex {
+  text-align: center;
+  color: #b1bbd9; }
 
 .Content section.footnotes hr {
   margin-bottom: 1em; }
@@ -1987,14 +1972,9 @@ button {
   display: block;
   text-align: center; }
 
-.Feature__summary .math {
-  text-align: center; }
-
-.Feature__summary .math img {
-  filter: invert(1);
-  max-width: 100%;
-  width: unset;
-  box-sizing: initial; }
+.Feature__summary .katex {
+  text-align: center;
+  color: #b1bbd9; }
 
 .Feature__summary section.footnotes hr {
   margin-bottom: 1em; }
