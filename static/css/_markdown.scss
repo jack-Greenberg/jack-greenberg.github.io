@@ -64,6 +64,18 @@
             -webkit-box-decoration-break: clone;
         }
     }
+    a {
+        @include reset-a;
+        color: $accent;
+        transition: color .2s, background-color .2s;
+        padding: .2em .3em;
+        margin: -.2em -.3em;
+
+        &:hover {
+            color: lighten($accent, 15%);
+            background-color: rgba(#172a45, .7);
+        }
+    }
     & > a {
         @include a;
         font-size: .8em;
@@ -216,8 +228,8 @@
         p {
             @include paragraph-like;
 
-            &:not(:last-child) {
-                margin-bottom: 1em;
+            &:last-child {
+                margin-bottom: 0;
             }
         }
     }

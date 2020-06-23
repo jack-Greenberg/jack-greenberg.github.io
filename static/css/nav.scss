@@ -45,11 +45,22 @@
             }
         }
     }
+    &__homelink {
+        @include h3-like;
+        margin-top: 32vh;
+        margin-bottom: 1em;
+        position: relative;
+        z-index: 2;
+
+        @media only screen and (min-width: 700px) {
+            display: none;
+        }
+    }
     &__list {
         font-size: 1.5em;
         list-style-type: none;
         text-align: center;
-        margin-top: 35vh;
+
         z-index: 2;
         position: relative;
         display: inline-block;
