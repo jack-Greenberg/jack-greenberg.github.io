@@ -22,7 +22,7 @@ echo "Removing existing files"
 rm -rf public/*
 
 echo "Generating site"
-hugo --minify
+hugo
 
 echo "Updating master pages branch"
 cd public
