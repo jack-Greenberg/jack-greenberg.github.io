@@ -25,7 +25,10 @@ echo "Generating site"
 hugo --minify
 
 echo "Updating master pages branch"
-cd public && git add --all && git commit -m "Deploy changes"
+cd public
+echo "www.jackgreenberg.co" > CNAME
+
+git add --all && git commit -m "Deploy changes"
 
 #echo "Pushing to github"
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
