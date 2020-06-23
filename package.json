@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "## Things to include * Images * Resume * Projects * Links * Formula * Music",
   "main": "index.js",
+  "browserslist": ["last 2 versions"],
   "scripts": {
     "build": "webpack --mode=production --display-error-details --config webpack.config.js; hugo",
     "serve": "concurrently \"hugo server\" \"webpack -p --progress --mode=development --display-error-details --config webpack.config.js --watch\" \"node dist/server.js\""
@@ -26,6 +27,7 @@
     "concurrently": "^5.2.0",
     "express": "^4.17.1",
     "nodegit": "^0.26.5",
+    "purgecss": "^2.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
@@ -37,7 +39,9 @@
     "webpack-notifier": "^1.8.0"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.3",
     "cors": "^2.8.5",
+    "postcss": "^7.0.32",
     "react-feather": "^2.0.8"
   }
 }
