@@ -1,3 +1,142 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><title>Jack Greenberg | BSPD Brakelight Circuit</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=title content="Jack Greenberg"><meta name=description content="The portfolio and personal website for Jack Greenberg. I'm an electrical and firmware engineer studying at Olin College of Engineering."><meta itemprop=name content="Jack Greenberg"><meta itemprop=description content="The portfolio and personal website for Jack Greenberg. I'm an electrical and firmware engineer studying at Olin College of Engineering."><meta itemprop=image content="/images/portrait_hu2ba8ed41c5e8f766e39c586334c20da3_2485738_600x0_resize_box_2.png"><meta property="og:type" content="website"><meta property="og:url" content="https://www.jackgreenberg.co"><meta property="og:title" content="Jack Greenberg"><meta property="og:description" content="The portfolio and personal website for Jack Greenberg. I'm an electrical and firmware engineer studying at Olin College of Engineering."><meta property="og:image" content="/images/portrait_hu2ba8ed41c5e8f766e39c586334c20da3_2485738_600x0_resize_box_2.png"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://www.jackgreenberg.co"><meta property="twitter:title" content="Jack Greenberg"><meta property="twitter:description" content="The portfolio and personal website for Jack Greenberg. I'm an electrical and firmware engineer studying at Olin College of Engineering."><meta property="twitter:image" content="/images/portrait_hu2ba8ed41c5e8f766e39c586334c20da3_2485738_600x0_resize_box_2.png"><link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png><link rel=manifest href=/favicons/site.webmanifest><link rel=stylesheet href=/css/index.min.7061bf7af16869120077d0633773b42981329b8b4139f037660f6d85532115e6.min.7061bf7af16869120077d0633773b42981329b8b4139f037660f6d85532115e6.css></head><body><div class=canvas><div class=Page><header class=Header><p class=Header__title><a href=/>Jack Greenberg</a></p><label for=nav-trigger class=nav-trigger>[]</label>
-<input type=checkbox id=nav-trigger><nav class=nav><label for=nav-trigger class=nav-overlay></label><p class=nav__homelink><a href=/>Jack Greenberg</a></p><ul class=nav__list><li class=nav__list__link><a href=/projects>Projects</a></li><li class=nav__list__link><a href=/about>About</a></li><li class=nav__list__link><a href=/documents/resume.pdf>Resume</a></li></ul></nav></header><div class=footer__wrapper><a href=/projects class=backlink>&lt; Back to projects</a><main class=Content><h1>BSPD Brakelight Circuit
-<img class=project-image src=images/main.svg></h1><p>My first project for <a href=https://www.olinelectricmotorsports.com>Olin Electric Motorsports</a> was redesigning the mission-critical brake system plausibility device. The analog circuit controls one node of the shutdown circuit on the car, helping to ensure the safety of the driver and vehicle.</p><h2 id=how-to-pcb>How to PCB</h2><p>The final deliverable for this project was a PCB, or printed circuit board, which would slot into the car&rsquo;s low voltage box. Along with performing a critical safety check for the electrical systems during racing, the circuit also handles the brakelight by reading an analog signal from a brake pressure sensor. Understanding the project was the first&ndash;and one of the hardest&ndash;tasks I had to accomplish.</p><h3 id=brake-system-plausibility>Brake System Plausibility</h3><p>The brake system plausibility device (BSPD) is an analog circuit that provides a critical safety check for the car. It ensures that the motor controller isn&rsquo;t supplying current to the motor while the brake is being pressed. This condition is dangerous in that it means the driver has lost control of the car, and requires the car to shut down.</p><p>In ordinary conditions, the throttle circuit (which is responsible for making the car accelerate) should prevent this from happening, but in the event that that doesn&rsquo;t happen, the BSPD circiut is a backup.</p><p>The circuit operates on a fairly simple AND gate to check for the condition, and implements a set-reset latch to ensure that the car cannot begin moving again until it is power-cycled<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p><h3 id=brakelight>Brakelight</h3><p>The other parts of the circuit are the brakelight circuit, which reads an analog signal from a brake pressure sensor and activates the brakelight if it is above a certain threshold, and triggers a low-side drive that turns on the brakelight.</p><h2 id=learning-the-ropes>Learning the Ropes</h2><p>This was my first serious electrical engineering project. When I started, my only experience was my AP Physics course, and we didn&rsquo;t do anything even close to this.</p><p>The first step in a project like this is understanding the target. This took me a long time because I had very little concept of how the car worked. Over time, I picked up bits and pieces and finally began to understand what this circuit needed to do. So the next step was creating a schematic.</p><figure><img src=images/schematic.png alt="BSPD/Brakelight circuit schematic."><figcaption><p>BSPD/Brakelight circuit schematic.</p></figcaption></figure><p>Schematics are the way electrical engineers detail the components that go on a board, like the resistors, integrated chips (microcontrollers), and LEDs. I broke up the schematic for this board into functional blocks: BSPD, brakelight, buck converter<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>, microcontroller, connector, and a few other bits and pieces.</p><p>After finishing a schematic and getting it reviewed, I began work on the layout. The layout is the design of the actual printed circuit board (PCB). It reads the schematic to figure out what components will go on the board, and then it is the responsibility of the designer to lay out the components and the wires between them such that everything is connected and works efficiently.</p><figure><img src=images/layout.png alt="BSPD/Brakelight circuit layout."><figcaption><p>BSPD/Brakelight circuit layout.</p></figcaption></figure><h2 id=looking-back>Looking Back</h2><p>This project was left in a strange state. I had just finished the layout and gotten it reviewed by the senior engineers on the FSAE team when all the students at Olin were ordered to vacate the campus due to concerns about COVID-19. I was able to ship one revision of the board and test it, and it worked as expected, but until we are back on campus and with the car, we won&rsquo;t be able to ship the most recent version and test with the car.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Power-cycling -> turn off and on again. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>Buck converters are switch-mode power supplies that can reduce an input voltage. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></main><footer class=footer><p>© 2020 • v2.0 • Powered by Hugo • <a href=https://github.com/jack-greenberg/jack-greenberg.github.io>9b07619</a> • <a href=/note>Quick Note</a></p><nav></nav></footer></div></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>
+    Jack Greenberg | BSPD Brakelight Circuit
+</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="title" content="Jack Greenberg">
+<meta name="description" content="The portfolio and personal website for Jack Greenberg. I&#39;m an electrical and firmware engineer studying at Olin College of Engineering.">
+
+
+<meta itemprop="name" content="Jack Greenberg">
+<meta itemprop="description" content="The portfolio and personal website for Jack Greenberg. I&#39;m an electrical and firmware engineer studying at Olin College of Engineering.">
+
+
+<meta itemprop="image" content="/images/portrait_hu2ba8ed41c5e8f766e39c586334c20da3_2485738_600x0_resize_box_2.png">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.jackgreenberg.co">
+<meta property="og:title" content="Jack Greenberg">
+<meta property="og:description" content="The portfolio and personal website for Jack Greenberg. I&#39;m an electrical and firmware engineer studying at Olin College of Engineering.">
+<meta property="og:image" content="/images/portrait_hu2ba8ed41c5e8f766e39c586334c20da3_2485738_600x0_resize_box_2.png">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://www.jackgreenberg.co">
+<meta property="twitter:title" content="Jack Greenberg">
+<meta property="twitter:description" content="The portfolio and personal website for Jack Greenberg. I&#39;m an electrical and firmware engineer studying at Olin College of Engineering.">
+<meta property="twitter:image" content="/images/portrait_hu2ba8ed41c5e8f766e39c586334c20da3_2485738_600x0_resize_box_2.png">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+
+        
+        
+        <link rel="stylesheet" href="/css/index.min.7061bf7af16869120077d0633773b42981329b8b4139f037660f6d85532115e6.min.7061bf7af16869120077d0633773b42981329b8b4139f037660f6d85532115e6.css">
+    </head>
+
+    <body>
+        
+<div class="canvas">
+    <div class="Page">
+        <header class="Header">
+    <p class="Header__title">
+        <a href="/">Jack Greenberg</a>
+    </p>
+    <label for="nav-trigger" class="nav-trigger">[]</label>
+<input type="checkbox" id="nav-trigger" />
+<nav class="nav">
+    <label for="nav-trigger" class="nav-overlay"></label>
+    <p class="nav__homelink"><a href="/">Jack Greenberg</a></p>
+    <ul class="nav__list">
+        <li class="nav__list__link">
+            <a href="/projects">Projects</a>
+        </li>
+        <li class="nav__list__link">
+            <a href="/about">About</a>
+        </li>
+        <li class="nav__list__link">
+            <a href="/documents/resume.pdf">Resume</a>
+        </li>
+    </ul>
+</nav>
+
+</header>
+
+        <div class="footer__wrapper">
+            <a href="/projects" class="backlink">&lt; Back to projects</a>
+            <main class="Content">
+                
+                <h1>
+                    BSPD Brakelight Circuit
+                    
+                    <img class="project-image" src="images/main.svg" />
+                    
+                </h1>
+
+                
+                <p>My first project for <a href="https://www.olinelectricmotorsports.com">Olin Electric Motorsports</a> was redesigning the mission-critical brake system plausibility device. The analog circuit controls one node of the shutdown circuit on the car, helping to ensure the safety of the driver and vehicle.</p>
+<!-- raw HTML omitted -->
+<h2 id="how-to-pcb">How to PCB</h2>
+<p>The final deliverable for this project was a PCB, or printed circuit board, which would slot into the car&rsquo;s low voltage box. Along with performing a critical safety check for the electrical systems during racing, the circuit also handles the brakelight by reading an analog signal from a brake pressure sensor. Understanding the project was the first&ndash;and one of the hardest&ndash;tasks I had to accomplish.</p>
+<h3 id="brake-system-plausibility">Brake System Plausibility</h3>
+<p>The brake system plausibility device (BSPD) is an analog circuit that provides a critical safety check for the car. It ensures that the motor controller isn&rsquo;t supplying current to the motor while the brake is being pressed. This condition is dangerous in that it means the driver has lost control of the car, and requires the car to shut down.</p>
+<p>In ordinary conditions, the throttle circuit (which is responsible for making the car accelerate) should prevent this from happening, but in the event that that doesn&rsquo;t happen, the BSPD circiut is a backup.</p>
+<p>The circuit operates on a fairly simple AND gate to check for the condition, and implements a set-reset latch to ensure that the car cannot begin moving again until it is power-cycled<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h3 id="brakelight">Brakelight</h3>
+<p>The other parts of the circuit are the brakelight circuit, which reads an analog signal from a brake pressure sensor and activates the brakelight if it is above a certain threshold, and triggers a low-side drive that turns on the brakelight.</p>
+<h2 id="learning-the-ropes">Learning the Ropes</h2>
+<p>This was my first serious electrical engineering project. When I started, my only experience was my AP Physics course, and we didn&rsquo;t do anything even close to this.</p>
+<p>The first step in a project like this is understanding the target. This took me a long time because I had very little concept of how the car worked. Over time, I picked up bits and pieces and finally began to understand what this circuit needed to do. So the next step was creating a schematic.</p>
+<figure>
+    <img src="images/schematic.png"
+         alt="BSPD/Brakelight circuit schematic."/> <figcaption>
+            <p>BSPD/Brakelight circuit schematic.</p>
+        </figcaption>
+</figure>
+
+<p>Schematics are the way electrical engineers detail the components that go on a board, like the resistors, integrated chips (microcontrollers), and LEDs. I broke up the schematic for this board into functional blocks: BSPD, brakelight, buck converter<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, microcontroller, connector, and a few other bits and pieces.</p>
+<p>After finishing a schematic and getting it reviewed, I began work on the layout. The layout is the design of the actual printed circuit board (PCB). It reads the schematic to figure out what components will go on the board, and then it is the responsibility of the designer to lay out the components and the wires between them such that everything is connected and works efficiently.</p>
+<figure>
+    <img src="images/layout.png"
+         alt="BSPD/Brakelight circuit layout."/> <figcaption>
+            <p>BSPD/Brakelight circuit layout.</p>
+        </figcaption>
+</figure>
+
+<h2 id="looking-back">Looking Back</h2>
+<p>This project was left in a strange state. I had just finished the layout and gotten it reviewed by the senior engineers on the FSAE team when all the students at Olin were ordered to vacate the campus due to concerns about COVID-19. I was able to ship one revision of the board and test it, and it worked as expected, but until we are back on campus and with the car, we won&rsquo;t be able to ship the most recent version and test with the car.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Power-cycling -&gt; turn off and on again. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Buck converters are switch-mode power supplies that can reduce an input voltage. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+            </main>
+            <footer class="footer">
+    <p>© 2020 • v2.0 • Powered by Hugo •  <a href="https://github.com/jack-greenberg/jack-greenberg.github.io">c895a50</a> • <a href="/note">Quick Note</a></p>
+    <nav>
+        
+    </nav>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

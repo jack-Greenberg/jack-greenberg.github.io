@@ -1,1 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://www.jackgreenberg.co/admin/</loc><lastmod>2020-05-14T20:47:29-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/projects/tools-olin-edu/</loc><lastmod>2020-06-15T07:14:38-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/projects/neato-gauntlet/</loc><lastmod>2020-06-20T23:28:54-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/projects/i2c2/</loc><lastmod>2020-05-31T14:47:38-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/projects/bspd/</loc><lastmod>2020-05-14T20:47:29-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/</loc><lastmod>2020-06-23T11:58:00-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/note/</loc><lastmod>2020-06-23T16:00:37-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/about/</loc><lastmod>2020-06-03T21:38:48-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://www.jackgreenberg.co/projects/</loc><lastmod>2020-05-13T13:17:31-07:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/admin/</loc>
+    <lastmod>2020-05-14T20:47:29-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/projects/tools-olin-edu/</loc>
+    <lastmod>2020-06-15T07:14:38-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/projects/neato-gauntlet/</loc>
+    <lastmod>2020-06-20T23:28:54-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/projects/i2c2/</loc>
+    <lastmod>2020-05-31T14:47:38-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/projects/bspd/</loc>
+    <lastmod>2020-05-14T20:47:29-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/</loc>
+    <lastmod>2020-06-23T11:58:00-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/note/</loc>
+    <lastmod>2020-06-23T16:00:37-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/about/</loc>
+    <lastmod>2020-06-03T21:38:48-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jackgreenberg.co/projects/</loc>
+    <lastmod>2020-05-13T13:17:31-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
