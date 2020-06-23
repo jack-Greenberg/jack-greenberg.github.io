@@ -6,10 +6,7 @@ A few years ago, I learned that there was a man before me by the name _Jack Gree
 
 [^1]: We are not related, as far as I am aware
 
-{{<figure
-src="/images/greenberg-lawyer.jpg"
-caption="Jack Greenberg, civil rights lawyer."
->}}
+{{< figure src="/images/greenberg-lawyer.jpg" caption="Jack Greenberg, civil rights lawyer." >}}
 
 I proceeded to read more on the [LDF's website](https://www.naacpldf.org/about-us/history/jack-greenberg/):
 
