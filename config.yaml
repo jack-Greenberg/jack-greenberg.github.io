@@ -7,6 +7,7 @@ enableEmoji: true
 enableRobotsTXT: true
 email: j@jacklgreenberg.com
 assetDir: static
+enableGitInfo: true
 params:
   name: Jack Greenberg
   email: j@jacklgreenberg.com
@@ -22,6 +23,7 @@ markup:
   goldmark:
     extensions:
       footnote: true
+
 outputs:
   page:
     - json

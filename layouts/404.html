@@ -1,8 +1,21 @@
+{{ define "title" }}
+    {{ .Site.Title }} | 404
+{{ end }}
+
 {{ define "main" }}
-    <main id="main">
-      <div>
-          404
-       <h1 id="title"><a href="{{ "/" | relURL }}">Go Home</a></h1>
-      </div>
-    </main>
+    <div class="Page">
+        {{ partial "header" . }}
+        <main class="Error404">
+            <div class="Error404__text">
+                <h1 class="Error404__text__header">Uh oh...</h1>
+                <p class="Error404__text__paragraph">Can’t seem to find this page. Maybe one of the gnomes stole it...</p>
+
+                <a class="Error404__text__link" href="/">Back to safety</a>
+                {{ partial "footer" . }}
+            </div>
+            <div class="Error404__image">
+                <img src="images/404.png" alt="404, page not found." title="Image from https://error404.fun" />
+            </div>
+        </main>
+    </div>
 {{ end }}
