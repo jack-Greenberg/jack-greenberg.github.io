@@ -3,6 +3,17 @@
     bottom: 0;
     margin-bottom: 1rem;
 
+    p {
+        @include paragraph-like;
+        font-size: .7em;
+        color: $fg;
+
+        a {
+            @include reset-a;
+            text-decoration: underline;
+        }
+    }
+
     @media only screen and (min-width: 700px) {
         font-size: 1.2rem;
     }
