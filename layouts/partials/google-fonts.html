@@ -1,0 +1,11 @@
+{{ if .Site.Params.google_fonts }}
+  {{ $fonts := slice }}
+  {{ range $font := .Site.Params.google_fonts }}
+    {{ $family := replace (index $font "name") " " "+" }}
+    {{ $string := print "family=" $family ":wght@" (delimit (index $font "weights") ";") }}
+    <!--  (delimit $weights ";") -->
+    {{ $fonts = $fonts | append $string }}
+  {{ end }}
+  {{ $url_part := (delimit $fonts "&") | safeHTMLAttr }}
+  <link {{ printf "href=\"https://fonts.googleapis.com/css2?%s&display=swap\"" $url_part | safeHTMLAttr }} rel="stylesheet">
+{{ end }}

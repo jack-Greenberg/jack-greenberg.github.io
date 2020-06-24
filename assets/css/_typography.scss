@@ -1,0 +1,58 @@
+// Styles
+@mixin h1-like {
+    font-size: 3em;
+    font-family: $sans;
+    color: $main;
+    font-weight: 700;
+
+    a {
+        @include reset-a;
+    }
+}
+
+@mixin h2-like {
+    @include h1-like;
+    font-size: 2em;
+}
+
+@mixin h3-like {
+    @include h2-like;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+@mixin h4-like {
+    @include h3-like;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+@mixin paragraph-like {
+    font-size: .8em;
+    font-family: $mono;
+    color: $fg;
+    line-height: 1.5em;
+}
+
+@mixin reset-a {
+	color: inherit;
+	text-decoration: none;
+    transition: color .2s;
+}
+
+@mixin a {
+    @include reset-a;
+    font-family: $mono;
+    white-space: nowrap;
+    transition: color .2s;
+
+    &:hover {
+        color: $accent;
+    }
+    &::before {
+        content: '[ ';
+    }
+    &::after {
+        content: ' ]';
+    }
+}

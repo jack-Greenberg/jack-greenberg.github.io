@@ -6,13 +6,26 @@ copyright: "Copyright © 2020, Jack Greenberg; all rights reserved."
 enableEmoji: true
 enableRobotsTXT: true
 email: j@jacklgreenberg.com
-assetDir: static
 enableGitInfo: true
 params:
   name: Jack Greenberg
   email: j@jacklgreenberg.com
   subtitle: Electrical and Firmware Engineer
   description: The portfolio and personal website for Jack Greenberg. I'm an electrical and firmware engineer studying at Olin College of Engineering.
+  google_fonts:
+    - name: "Fira Code"
+      weights:
+        - 400
+        - 700
+    - name: "Fira Sans"
+      weights:
+        - 400
+        - 500
+        - 600
+        - 700
+  fonts:
+    sans: Fira Sans
+    mono: Fira Code
 markup:
   highlight:
     lineNos: true

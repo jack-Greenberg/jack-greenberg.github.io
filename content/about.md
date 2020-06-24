@@ -2,7 +2,7 @@
 title: About
 ---
 
-{{< figure src="/images/portrait.png" >}}
+{{< img src="images/portrait.png" >}}
 
 Hi there! My name is Jack Greenberg. I am an engineering student at Olin College of ~~Arts and Crafts~~ Engineering, studying electrical and computer engineering. My passions lie in firmware/embedded systems and electrical design, and I also am quite fond of web development.
 

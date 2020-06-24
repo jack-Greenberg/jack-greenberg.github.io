@@ -7,9 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{ partial "meta" . }}
 
-        {{ $styles := resources.Get "css/index.scss" | toCSS | resources.PostCSS (dict "config" "postcss.config.js") | minify | fingerprint }}
+        {{ partial "google-fonts" . }}
+        {{ $styles := resources.Get "css/index.scss" | resources.ExecuteAsTemplate "style.index.scss" . | toCSS | resources.PostCSS (dict "config" "postcss.config.js") | minify | fingerprint }}
         {{ $style := $styles | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet" href="{{ $style.Permalink | relURL }}">
+        <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity=”{{ $style.Data.Integrity }}” >
     </head>
 
     <body>

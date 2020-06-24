@@ -1,0 +1,27 @@
+@import 'reset';
+@import 'variables';
+
+$sans: {{ $.Site.Params.fonts.sans | default "sans-serif" }}, "sans-serif";
+$mono: {{ $.Site.Params.fonts.mono | default "monospace" }}, "monospace";
+
+@import 'chroma';
+@import 'markdown';
+
+@import 'page';
+@import 'homepage';
+@import '404';
+
+@import 'nav';
+@import 'page';
+@import 'header';
+@import 'footer';
+
+.canvas {
+    background-color: $bg; // Set background color to dark
+    min-height: 100vh; // Make sure the background takes up at least the entire viewport
+    position: relative; // Set relative position to align the footer to at least the bottom
+}
+
+body {
+    background-color: $bg;
+}
