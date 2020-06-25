@@ -1,7 +1,7 @@
 .footer {
     position: absolute;
     bottom: 0;
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
 
     p {
         @include paragraph-like;
@@ -14,7 +14,7 @@
         }
     }
 
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         font-size: 1.2rem;
     }
 

@@ -5,17 +5,16 @@
     margin: 0 auto;
     flex-direction: column-reverse;
 
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         flex-direction: row;
     }
 
     &__text {
-        width: 80%;
-        max-width: 20em;
+        max-width: 18em;
         margin: 1em auto 0 auto;
         text-align: center;
 
-        @media only screen and (min-width: 700px) {
+        @media only screen and (min-width: $large) {
             width: 40%;
             padding-top: 4em;
             margin: 0 5%;
@@ -27,7 +26,7 @@
         }
         &__paragraph {
             @include paragraph-like;
-            margin-bottom: 2em;
+            margin-bottom: 4em;
         }
         &__link {
             @include a;
@@ -36,10 +35,10 @@
     }
     &__image {
         width: 100%;
-        margin: 4em auto 0 auto;
+        margin: 3em auto 0 auto;
         text-align: center;
 
-        @media only screen and (min-width: 700px) {
+        @media only screen and (min-width: $large) {
             width: 60%;
             margin: 0;
         }
@@ -47,5 +46,8 @@
             max-width: 40em;
             width: 100%;
         }
+    }
+    .footer {
+        text-align: center;
     }
 }

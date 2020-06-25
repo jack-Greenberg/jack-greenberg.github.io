@@ -12,7 +12,7 @@
     @media only screen and (min-width: 400px) {
         height: map-get($image-size, medium);
     }
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         height: map-get($image-size, large);
     }
     img {
@@ -35,7 +35,7 @@
     @media only screen and (min-width: 400px) {
         font-size: 1.2em;
     }
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         font-size: 1.3em;
         max-width: 40em;
         margin: 0;
@@ -70,7 +70,7 @@
             color: $main;
             margin-bottom: 1.5rem;
 
-            @media only screen and (min-width: 700px) {
+            @media only screen and (min-width: $large) {
                 font-size: .8em;
             }
         }
@@ -91,7 +91,7 @@
                 }
             }
 
-            @media only screen and (min-width: 700px) {
+            @media only screen and (min-width: $large) {
                 font-size: .6em;
                 max-width: 30em;
             }
@@ -99,7 +99,7 @@
     }
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: $large) {
     .homepage-flex-container {
         display: flex;
         flex-direction: row-reverse;
@@ -117,7 +117,7 @@
 .homepage .nav__list {
     font-size: 1.5em;
 
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         font-size: 1em;
     }
     @media only screen and (min-width: 1000px) {

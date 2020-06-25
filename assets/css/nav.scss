@@ -9,7 +9,7 @@
     z-index: 9;
     text-align: center;
 
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         font-size: 1.2em;
         text-align: left;
         display: block;
@@ -52,7 +52,7 @@
         position: relative;
         z-index: 2;
 
-        @media only screen and (min-width: 700px) {
+        @media only screen and (min-width: $large) {
             display: none;
         }
     }
@@ -65,7 +65,7 @@
         position: relative;
         display: inline-block;
 
-        @media only screen and (min-width: 700px) {
+        @media only screen and (min-width: $large) {
             margin-top: 0;
             text-align: left;
             font-size: .9em;
@@ -110,7 +110,7 @@
     font-family: $mono;
     color: $main;
 
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         display: none;
         position: relative;
         top: unset;

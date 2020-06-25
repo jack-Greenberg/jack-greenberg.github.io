@@ -1,5 +1,5 @@
 .Header {
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: $large) {
         margin-bottom: 2em;
     }
 
@@ -9,7 +9,7 @@
 
         // Hide title on small screens
         display: none;
-        @media only screen and (min-width: 700px) {
+        @media only screen and (min-width: $large) {
             display: block;
         }
     }
