@@ -11,7 +11,7 @@
             <a href="/about">About</a>
         </li>
         <li class="nav__list__link">
-            <a href="{{ resources.Get "documents/resume.pdf" | relURL }}">Resume</a>
+            <a href="{{ (resources.Get "documents/resume.pdf").RelPermalink }}">Resume</a>
         </li>
     </ul>
 </nav>
