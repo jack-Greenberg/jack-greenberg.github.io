@@ -180,8 +180,8 @@
                         top: .5em;
                         right: .5em;
                         margin-left: 1em;
-                        color: #999;
-                        background-color: #3e3e3e;
+                        color: $accent;
+                        background-color: lighten($bg, 10%);
                     }
                 }
                 td {

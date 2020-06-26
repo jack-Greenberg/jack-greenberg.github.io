@@ -8,8 +8,8 @@ featured: false
 
 The objective of this project (the final of my Olin class _Quantitative Engineering Analysis_) was to navigate a simulated Roomba-like robot through a world called __The Gauntlet__, avoiding obstacles (boxes) until finally reaching the goal (cylinder).
 
-{{<
-    figure src="images/gauntlet.png"
+{{<figure
+    src="images/gauntlet.png"
     caption="The Gauntlet"
 >}}
 
