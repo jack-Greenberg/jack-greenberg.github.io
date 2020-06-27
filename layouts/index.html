@@ -3,27 +3,41 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="canvas">
-    <div class="homepage-flex-container  homepage  page-main">
-        {{ partial "nav" . }}
-        <main class="index-main">
-            <div class="site-image">
+<div class="Page  Homepage">
+    {{ partial "nav" . }}
+    <div class="footer__wrapper">
+        <main class="footer__push  banner">
+            <div class="banner__image">
                 <img src="{{ (resources.Get "images/illustration.png").RelPermalink }}" alt="Illustration of Jack Greenberg" />
             </div>
-            <div class="banner">
-                <h1 class="banner__title">
-                    {{ .Site.Title }}
-                </h1>
-                <h2 class="banner__subtitle">
-                    {{ .Site.Params.subtitle }}
-                </h2>
-                <p class="banner__description">
-                    I’m an engineering student at <a href="http://www.olin.edu">Olin College of Engineering</a> in Needham, MA. I’m passionate about embedded software and electrical design. I also play jazz bass.
-                </p>
+            <div class="banner__nav-wrap">
+                <div class="banner__border-wrap">
+                    <div class="banner__text">
+                        <h1 class="banner__text__title">
+                            {{ .Site.Title }}
+                        </h1>
+                        <h2 class="banner__text__subtitle">
+                            {{ .Site.Params.subtitle }}
+                        </h2>
+                        <p class="banner__text__description">
+                            I’m an engineering student at <a href="http://www.olin.edu">Olin College of Engineering</a> in Needham, MA. I’m passionate about embedded software and electrical design. I also play jazz bass.
+                        </p>
+                    </div>
+                </div>
+                <ul class="banner__nav">
+                    <li class="banner__nav__link">
+                        <a href="/projects">Projects</a>
+                    </li>
+                    <li class="banner__nav__link">
+                        <a href="/about">About</a>
+                    </li>
+                    <li class="banner__nav__link">
+                        <a href="{{ (resources.Get "documents/resume.pdf").RelPermalink }}">Resume</a>
+                    </li>
+                </ul>
             </div>
-
-            {{ partial "footer" . }}
         </main>
+        {{ partial "footer" . }}
     </div>
 </div>
 {{ end }}

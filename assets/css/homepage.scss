@@ -1,60 +1,50 @@
 // Styles just used for the homepage page
-
-// Large image
-/*
- * The height technique is also used in nav.scss. It ensures that the
- * top margin of the nav has an offset equal to the homepage image,
- * so that it can be centered with the .banner
- */
-.site-image {
-    height: map-get($image-size, small);
+.banner {
 
     @media only screen and (min-width: 400px) {
-        height: map-get($image-size, medium);
-    }
-    @media only screen and (min-width: $large) {
-        height: map-get($image-size, large);
-    }
-    img {
-        height: 100%;
-        width: auto;
-    }
-}
-
-@media only screen and (min-height: 800px) {
-    .page-main {
-        padding-top: 20vh;
-    }
-}
-
-.index-main {
-    padding: 1em;
-    max-width: 30em;
-    margin: 0 auto;
-
-    @media only screen and (min-width: 400px) {
+        margin-top: 15vh;
         font-size: 1.2em;
     }
     @media only screen and (min-width: $large) {
         font-size: 1.3em;
-        max-width: 40em;
-        margin: 0;
-        padding: 0;
 
-        .banner {
-            border-right: 3px solid $fg;
-            max-width: unset;
-            padding-right: 2em;
+        &__border-wrap {
+            display: flex;
+            align-items: stretch;
+
+            // Border between text and nav
+            &::after {
+                content: "";
+                border-right: 3px solid $fg;
+                margin-left: 3rem;
+            }
         }
     }
     @media only screen and (min-width: 1000px) {
         font-size: 1.6em;
     }
-    @media only screen and (min-width: 1200px) {
-        font-size: 1.8em;
+    &__nav-wrap {
+        display: flex;
+        align-items: center;
     }
-    .banner {
-        margin-top: 2rem; // This value is also set in the top margin of the nav for the index page
+    &__image {
+        height: map-get($image-size, small);
+        padding-bottom: 1em;
+
+        @media only screen and (min-width: 400px) {
+            height: map-get($image-size, medium);
+        }
+        @media only screen and (min-width: $large) {
+            height: map-get($image-size, large);
+        }
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+    &__text {
+        padding: 1rem 0;
+        position: relative;
 
         &__title {
             font-size: 2.5em;
@@ -62,6 +52,7 @@
             font-weight: 600;
             color: $main;
             margin-bottom: .5rem;
+            white-space: nowrap;
         }
         &__subtitle {
             font-size: 1.25em;
@@ -78,7 +69,7 @@
             font-size: .825em;
             font-family: $mono;
             color: $fg;
-            width: 80%;
+            width: 85%;
 
             a {
                 color: $accent;
@@ -93,34 +84,31 @@
 
             @media only screen and (min-width: $large) {
                 font-size: .6em;
-                max-width: 30em;
+                max-width: 25em;
             }
         }
     }
-}
+    &__nav {
+        font-size: .6em;
+        display: none;
+        list-style-type: none;
+        text-align: left;
+        margin-left: 2rem;
 
-@media only screen and (min-width: $large) {
-    .homepage-flex-container {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-
-        .nav {
-            font-size: 1.25em;
-            align-self: center;
-            margin-top: calc(#{map-get($image-size, large)} + 2rem); // The 2rem comes from the top margin of .banner
-            padding-left: 2em;
+        @media only screen and (min-width: $large) {
+            display: block;
         }
-    }
-}
+        &__link {
+            font-family: $mono;
+            color: $main;
 
-.homepage .nav__list {
-    font-size: 1.5em;
-
-    @media only screen and (min-width: $large) {
-        font-size: 1em;
-    }
-    @media only screen and (min-width: 1000px) {
-        font-size: 1.2em;
+            &:not(:last-child) {
+                margin-bottom: .8em;
+            }
+            a {
+                @include a;
+                transition: color .2s;
+            }
+        }
     }
 }
