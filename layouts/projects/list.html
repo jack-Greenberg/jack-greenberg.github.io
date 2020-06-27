@@ -3,11 +3,10 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="canvas">
     <div class="Page">
-        {{ partial "header" . }}
-        <div class="footer__wrapper">
-            <main role="main">
+        <div class="vertical-flex">
+            {{ partial "header" . }}
+            <main role="main" class="vertical-flex__fill PageWidth">
                 <div class="Content">
                     <h1 class="h1">{{ .Title }}</h1>
                     <p>{{ .Content }}</p>
@@ -45,5 +44,4 @@
             {{- partial "footer" . -}}
         </div>
     </div>
-</div>
 {{ end }}

@@ -3,11 +3,10 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="canvas">
     <div class="Page">
         {{ partial "header" . }}
-        <div class="footer__wrapper">
-            <main class="Content">
+        <div class="vertical-flex">
+            <main class="Content  vertical-flex__fill  PageWidth">
                 <h1>
                     {{ .Title }}
                 </h1>
@@ -18,5 +17,4 @@
             {{ partial "footer" . }}
         </div>
     </div>
-</div>
 {{ end }}

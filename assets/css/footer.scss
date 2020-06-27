@@ -1,5 +1,6 @@
 .footer {
-    margin: 1.5rem 0 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     flex-shrink: 1;
 
     p {
@@ -42,19 +43,4 @@
             }
         }
     }
-}
-
-.footer__wrapper {
-    display: flex;
-    flex-direction: column;
-    max-width: 30em;
-    margin: 0 auto;
-    height: 100%;
-
-    @media only screen and (min-width: 1000px) {
-        max-width: 35em;
-    }
-}
-.footer__push {
-    flex: 1 0 auto;
 }

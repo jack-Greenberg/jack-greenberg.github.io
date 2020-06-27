@@ -1,11 +1,28 @@
+.PageWidth {
+    width: 100%;
+    margin-left: unset;
+    margin-right: unset;
+
+    @media only screen and (min-width: $large) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 42rem;
+
+        .Homepage & {
+            max-width: 45rem;
+        }
+    }
+}
+
 .Page {
-    padding: 1em 1em;
     background-color: $bg;
     position: relative;
     min-height: 100vh;
     height: 100%;
     position: relative;
     z-index: 2;
+    padding-left: 1em;
+    padding-right: 1em;
 
     @media only screen and (min-width: 375px) {
         font-size: 1.1em;
@@ -13,17 +30,19 @@
     @media only screen and (min-width: $large) {
         font-size: 1.2em;
     }
-
-    .backlink {
-        @include paragraph-like;
-    }
 }
 
 .Content {
     @include markdown;
 
-    margin: 3em 0 2em;
+    margin-top: 3em;
+    margin-bottom: 2em;
     flex: 1 0 auto;
+
+    &__backlink {
+        margin-bottom: 1em;
+        a { @include paragraph-like; }
+    }
 }
 
 .Feature {

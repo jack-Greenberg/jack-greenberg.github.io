@@ -1,0 +1,13 @@
+.vertical-flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+
+    &__fill {
+        flex: 1 0 auto;
+    }
+    &__shrink {
+        flex: 0 1 0;
+    }
+}

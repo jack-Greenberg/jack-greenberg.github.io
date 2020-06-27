@@ -3,12 +3,13 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="canvas">
     <div class="Page">
         {{ partial "header" . }}
-        <div class="footer__wrapper">
-            <a href="/projects" class="backlink">&lt; Back to projects</a>
-            <main class="Content">
+        <div class="vertical-flex">
+            <main class="Content  vertical-flex__fill  PageWidth">
+                <div class="Content__backlink">
+                    <a href="/projects">&lt; Back to projects</a>
+                </div>
                 {{ if .Params.draft }}<span class="draft-label">Draft</span>{{ end }}
                 <h1>
                     {{ .Title }}
@@ -23,5 +24,4 @@
             {{ partial "footer" . }}
         </div>
     </div>
-</div>
 {{ end }}

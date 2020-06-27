@@ -5,8 +5,8 @@
 {{ define "main" }}
 <div class="Page  Homepage">
     {{ partial "nav" . }}
-    <div class="footer__wrapper">
-        <main class="footer__push  banner">
+    <div class="vertical-flex">
+        <main class="vertical-flex__fill  PageWidth  banner">
             <div class="banner__image">
                 <img src="{{ (resources.Get "images/illustration.png").RelPermalink }}" alt="Illustration of Jack Greenberg" />
             </div>

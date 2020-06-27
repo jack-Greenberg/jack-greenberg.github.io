@@ -1,3 +1,4 @@
+// @import 'normalize';
 @import 'reset';
 @import 'variables';
 
@@ -7,6 +8,7 @@ $mono: {{ $.Site.Params.fonts.mono | default "monospace" }}, "monospace";
 @import 'chroma';
 @import 'markdown';
 
+@import 'vertical-flex';
 @import 'page';
 @import 'homepage';
 @import '404';

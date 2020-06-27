@@ -1,8 +1,9 @@
 .Header {
-    @media only screen and (min-width: $large) {
-        margin-bottom: 2em;
-    }
 
+    @media only screen and (min-width: $large) {
+        padding: 2rem;
+        margin-bottom: 1em;
+    }
     &__title {
         @include h2-like;
         margin-bottom: 1em;
