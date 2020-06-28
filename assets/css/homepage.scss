@@ -1,9 +1,13 @@
 // Styles just used for the homepage page
 .banner {
+    min-height: 20em;
 
     @media only screen and (min-width: 400px) {
-        margin-top: 15vh;
+        // margin-top: 10vh;
         font-size: 1.2em;
+    }
+    @media only screen and (min-height: 700px) {
+        margin-top: 10vh;
     }
     @media only screen and (min-width: $large) {
         font-size: 1.3em;
@@ -52,7 +56,7 @@
             font-family: $sans;
             font-weight: 600;
             color: $main;
-            margin-bottom: .5rem;
+            margin-bottom: .25em;
             white-space: nowrap;
         }
         &__subtitle {
@@ -67,7 +71,7 @@
             }
         }
         &__description {
-            font-size: .825em;
+            font-size: .75rem;
             font-family: $mono;
             color: $fg;
             width: 85%;
@@ -84,7 +88,7 @@
             }
 
             @media only screen and (min-width: $large) {
-                font-size: .6em;
+                font-size: 1rem;
                 max-width: 25em;
             }
         }
@@ -104,7 +108,7 @@
             color: $main;
 
             &:not(:last-child) {
-                margin-bottom: .8em;
+                margin-bottom: 1.2em;
             }
             a {
                 @include a;
