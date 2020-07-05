@@ -89,7 +89,7 @@ There are two issues that initially came up with this implementation:
 
 To solve the first issue, since I knew the approximate size of the circle, I ruled out models with radii too far from the goal. That part was easier. The second issue required some more ingenuity.
 
-In theory, if a set of data points fit a model, then any subset of those points would fit the same model just as well. I used this fact to solve the right-angle fitting issue by performing the RANSAC circle detector once more on the set of inliers generated the first time. If the original fit of a circle was *correct*, then the center and radius of the new circle will be roughly the same. However, if it is a right angle, it is more likely that the center of the newly generated circle will be significantly different than the original, so we can rule it out as a circle.
+In theory, if a set of data points fit a model, then any subset of those points would fit the same model just as well. I used this fact to solve the right-angle fitting issue by performing the RANSAC circle detection once more on the set of inliers generated the first time. If the original fit of a circle was *correct*, then the center and radius of the new circle will be roughly the same. However, if it is a right angle, it is more likely that the center of the newly generated circle will be significantly different from the original, so we can rule it out as a circle.
 
 
 
@@ -101,9 +101,9 @@ Now that I had a set of boundaries and a goal from our dataset, I needed a way t
 z = ln \sqrt{(x-x_n)^{2}+(y-y_n)^{2}}
 {{</katex>}}
 
-I added multiple of these terms together to generate a composite map of the NEATO's surroundings. If the term is *positive*, then we get a "sink", and if the term is *negative* we get a "source". When it comes time for the NEATO to choose a path with gradient descent, it will be attraced to the sinks and repelled from the sources.
+I added multiple of these terms together to generate a composite map of the NEATO's surroundings. If the term is *positive*, then we get a "sink", and if the term is *negative* we get a "source". When it comes time for the NEATO to choose a path with gradient descent, it will be attracted to the sinks and repelled from the sources.
 
-I took three different approaches to generating the sinks and sources. First, I just use the end points of the best fit lines as sources and the center of the circle as sinks. The issue with this was that on big lines, the NEATO would find paths through the middle of a wall, and would then collide with said wall.
+I took three different approaches to generating the sinks and sources. First, I just use the endpoints of the best fit lines as sources and the center of the circle as sinks. The issue with this was that on big lines, the NEATO would find paths through the middle of a wall, and would then collide with said wall.
 
 The next thing I tried was having *n* points between the two endpoints of every line and making each of those sources. The problem there was in the density of sources. Longer lines, like the boundary of the Gauntlet, would have points spaced out every .25 meters, but short lines like the edge of a box would have points spaced out every .025 meters. This was an issue because boundaries need to all have the same weights or else the ones with less weight/density will be treated as acceptable for finding paths.
 
@@ -117,7 +117,7 @@ The final equation was:
 
 ### Gradient Descent
 
-After I generated the equation, it was time to get the NEATO to actually move. In order to do this, I used a *gradient descent* method. The algorithm works by assessing the current position of the NEATO using ROS's `/odom` topic (which gets the position of the NEATO and it's orientation in the form of a quarternion), rotating in the opposite direction of the gradient vector at its current point, and then moving along some proportion of the length of the gradient vector.
+After I generated the equation, it was time to get the NEATO to actually move. In order to do this, I used a *gradient descent* method. The algorithm works by assessing the current position of the NEATO using ROS's `/odom` topic (which gets the position of the NEATO and it's orientation in the form of a quaternion), rotating in the opposite direction of the gradient vector at its current point, and then moving along some proportion of the length of the gradient vector.
 
 The equation to calculate the next point is:
 

@@ -19,7 +19,7 @@ The final deliverable for this project was a PCB, or printed circuit board, whic
 
 The brake system plausibility device (BSPD) is an analog circuit that provides a critical safety check for the car. It ensures that the motor controller isn't supplying current to the motor while the brake is being pressed. This condition is dangerous in that it means the driver has lost control of the car, and requires the car to shut down.
 
-In ordinary conditions, the throttle circuit (which is responsible for making the car accelerate) should prevent this from happening, but in the event that that doesn't happen, the BSPD circiut is a backup.
+In ordinary conditions, the throttle circuit (which is responsible for making the car accelerate) should prevent this from happening, but in the event that that doesn't happen, the BSPD circuit is a backup.
 
 The circuit operates on a fairly simple AND gate to check for the condition, and implements a set-reset latch to ensure that the car cannot begin moving again until it is power-cycled[^1].
 

@@ -8,27 +8,27 @@ externalLink: https://github.com/jack-greenberg/i2c2
 featured: true
 ---
 
-I wrote an implementation of the I2C protocol (inter-integrated chip) in C. I learned a lot about writing and debugging embedded firmware.
+I wrote an implementation of the I2C protocol (inter-integrated chip) in C. It taught me a lot about writing and debugging embedded firmware.
 
 <!--more-->
 
-I2C is a two-wire communication protocol, often used foster communication between sensors and microcontrollers. I wrote the library for AVR chips, and in particular the ATMega328p and ATMega16m1.
+I2C is a two-wire communication protocol, often used to foster communication between sensors and microcontrollers. I wrote the library for AVR chips, in particular the ATMega328p and ATMega16M1.
 
-In a nutshell, the protocol works by using one wire as a clock signal (SCL) which then synchronizes the sender and receiver, which send/receive data on the other wire, the data signal (SDA).
+In a nutshell, the protocol works by using one wire as a clock signal (SCL) which then synchronizes the sender and receiver, and one wire as the data signal that transmits 8 bit messages with error handling.
 
 ## Motivation
 
 There were two motivations for the project:
 
-1. The electrical subteam for Olin Electric Motorsports, my school's FSAE team, needed a microcontroller-agnostic I2C library to allow the ATMega16m1 (which has no I2C integration) to communicate with a sensor that outputs I2C, and
+1. The electrical subteam for Olin Electric Motorsports, my school's FSAE team, needed a microcontroller-agnostic I2C library to allow the ATMega16M1 (which has no I2C integration) to communicate with a sensor that outputs I2C, and
 2. I chose the previous reason as motivation for my Software Systems course project.
 
-Additionally, I am very interested about the interface between hardware and software, and I wanted to teach myself more. Physical layer communication protocols like I2C, SPI, and CAN are very widely used and underly a lot of the technology we use today, especially the internet.
+Additionally, I am very interested in the interface between hardware and software, and I wanted to teach myself more. Physical layer communication protocols like I2C, SPI, and CAN are very widely used and underlie a lot of the technology we use today, especially the internet.
 
 
 ## Implementation
 
-The library consisted of 3 files: `i2c.c` (the library), `i2c.h` (the header file), and a `Makefile`, as well as a testing file `main.c`. The header file contained contants for things like the microcontroller pins, clock speeds, and read/write mode indicators. The makefile included scripts for compiling and flashing the testing file on an Arduino as well as a script for generating a library file (`i2c.a`).
+The library consisted of 3 files: `i2c.c` (the library), `i2c.h` (the header file), and a `Makefile`, as well as a testing file `main.c`. The header file contained constants for things like the microcontroller pins, clock speeds, and read/write mode indicators. The makefile included scripts for compiling and flashing the testing file on an Arduino as well as a script for generating a library file (`i2c.a`).
 
 The main file of interest though is `i2c.c`, which contains the bulk of the code. The most difficult piece of the implementation was working on synchronization of the SCL and SDA lines. Because embedded C is so low level, it can be difficult to determine the state of a pin on a microcontroller[^1]. So I developed a simple "stalling" method that would suspend the program until there was a change in one of the pins:
 
@@ -52,15 +52,15 @@ Because I2C uses open-drain/open-collector set up, it requires pull-up resistors
 
 {{< figure src="images/i2c-schematic.png" caption="I2C schematic with pull-up resistors." >}}
 
-To develop the library, I used an Arduino, which uses at ATMega328p microcontroller, and an Analog Discovery, which is essentially a pocket-sized oscilliscope and signal interpreter. I learned about I2C using [Texas Instruments's I2C application report](https://www.ti.com/lit/an/slva704/slva704.pdf). I tested things like signal synchronization and clock frequency settings using the Analog Discovery's oscilliscope, which generated results like this:
+To develop the library, I used an Arduino, which uses an ATMega328p microcontroller, and an Analog Discovery, which is essentially a pocket-sized oscilloscope and signal interpreter. I learned about I2C using [Texas Instruments's I2C application report](https://www.ti.com/lit/an/slva704/slva704.pdf). I tested things like signal synchronization and clock frequency settings using the Analog Discovery's oscilloscope, which generated results like this:
 
-{{< figure src="images/i2c-1.png" caption="Oscilliscope reading of electrical signal: \<START>11101\<STOP>" >}}
+{{< figure src="images/i2c-1.png" caption="Oscilloscope reading of electrical signal: \<START>11101\<STOP>" >}}
 
 ### Debugging
 
-One of the most hardest tasks in software, and in particular firmware, is debugging. Ordinarily, when I write Python or Go, there are semi-useful error messages that get printed out to a terminal with tracebacks that help you identify the origin of error. However, when you have no error messages, and instead are just looking at the readout of an oscilliscope, it can often be difficult to find your error source, especially while things are happening at high frequencies like 100kHz. So over time I developed debugging methods and strategies that would help me find sources of error.
+One of the hardest tasks in software, and in particular firmware, is debugging. Ordinarily, when I write Python or Go, there are semi-useful error messages that get printed out to a terminal with tracebacks that help you identify the origin of error. However, when you have no error messages, and instead are just looking at the readout of an oscilloscope, it can often be difficult to find your error source, especially while things are happening at high frequencies like 100kHz. So over time I developed debugging methods and strategies that would help me find sources of error.
 
-My primary method was to make a single change to the code and looking for changes in the signal. These changes could be slight, like switching the order that two lines rise from a 0 state to a 1 state, or drastic, like the entire signal stuck in one, unchanging state. This debugging technique was especially useful when it came to synchronization issues, because it was sometimes difficult to tell whether or not I needed to stall while a line was high or a line was low.
+My primary method was making single change to the code and looking for changes in the signal. These changes could be slight, like switching the order that two lines rise from a 0 state to a 1 state, or drastic, like the entire signal stuck in one, unchanging state. This debugging technique was especially useful when it came to synchronization issues, because it was sometimes difficult to tell whether or not I needed to stall while a line was high or a line was low.
 
 For higher level issues, like figuring out--conceptually--how to enforce a start condition, it is also helpful to talk out loud to a friend.
 
