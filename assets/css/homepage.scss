@@ -2,15 +2,7 @@
 .banner {
     min-height: 20em;
 
-    @media only screen and (min-width: 400px) {
-        // margin-top: 10vh;
-        font-size: 1.2em;
-    }
-    @media only screen and (min-height: 700px) {
-        margin-top: 10vh;
-    }
     @media only screen and (min-width: $large) {
-        font-size: 1.3em;
 
         &__border-wrap {
             display: flex;
@@ -20,12 +12,18 @@
             &::after {
                 content: "";
                 border-right: 3px solid $fg;
-                margin-left: 3rem;
+                margin-left: 2em;
             }
         }
     }
-    @media only screen and (min-width: 1000px) {
-        font-size: 1.6em;
+    @media only screen and (min-width: $large) and (min-height: 700px) {
+        font-size: 1.1em;
+        margin-top: 3em;
+    }
+    @media only screen and (min-width: 1000px) and (min-height: 600px) {
+        font-size: 1.2em;
+    }
+    @media only screen and (min-height: 800px) {
     }
     &__nav-wrap {
         display: flex;
@@ -50,6 +48,7 @@
     &__text {
         padding: 1rem 0;
         position: relative;
+        display: inline-block;
 
         &__title {
             font-size: 2.5em;
@@ -58,6 +57,10 @@
             color: $main;
             margin-bottom: .25em;
             white-space: nowrap;
+
+            @media only screen and (min-width: $large) and (min-height: 700px) {
+                font-size: 3em;
+            }
         }
         &__subtitle {
             font-size: 1.25em;
@@ -65,13 +68,9 @@
             font-weight: 500;
             color: $main;
             margin-bottom: 1.5rem;
-
-            @media only screen and (min-width: $large) {
-                font-size: .8em;
-            }
         }
         &__description {
-            font-size: .75rem;
+            font-size: .7em;
             line-height: 1.5;
             font-family: $mono;
             color: $fg;
@@ -89,13 +88,13 @@
             }
 
             @media only screen and (min-width: $large) {
-                font-size: 1rem;
-                max-width: 25em;
+                max-width: 27.5rem;
+                width: unset;
             }
         }
     }
     &__nav {
-        font-size: .6em;
+        font-size: .7em;
         display: none;
         list-style-type: none;
         text-align: left;

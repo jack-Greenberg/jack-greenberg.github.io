@@ -1,7 +1,19 @@
 .footer {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    flex-shrink: 1;
+
+    // Sticks the footer at the bottom
+    position: sticky;
+    
+    /*
+     * Using a negative bottom causes it to not follow
+     * the bottom of the page, but stop when it hits
+     * content. There seems to be a bug in firefox
+     * where if it is small, like -1em, the scroll seems
+     * to slow down... but making it big doesn't seem to
+     * have adverse effects...
+     */
+    bottom: -999em;
 
     p {
         @include paragraph-like;

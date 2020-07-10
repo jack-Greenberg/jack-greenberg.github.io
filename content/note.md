@@ -2,7 +2,7 @@
 title: A Quick Note
 ---
 
-A few years ago, I learned that there was a man before me by the name _Jack Greenberg_[^1], who was a prominent civil rights lawyer. He was the NAACP Legal Defense Fund's second legal director after Thurugood Marshall.
+A few years ago, I learned that there was a man before me by the name _Jack Greenberg_[^1], who was a prominent civil rights lawyer. He was the NAACP Legal Defense Fund's second legal director after Thurgood Marshall.
 
 [^1]: We are not related, as far as I am aware
 
@@ -15,9 +15,9 @@ I proceeded to read more on the [LDF's website](https://www.naacpldf.org/about-u
 
 This man is a great example of how to use white privilege to benefit others. He knew that because of the color of his skin, he had the ability to make the predominantely white juries and judges listen to him, and was able to use that ability to lift up black voices during the civil rights era.
 
-I think about this man who I coincidentally share a name with very often, and he has become an icon to look up to. I strive to live up to my namesake, to use my privilege to amplify the voices who too often are silenced by an oppresive state.
+I think about this man who I coincidentally share a name with very often, and he has become an icon to look up to. I strive to live up to my namesake, to use my privilege to amplify the voices who too often are silenced by an oppressive state.
 
-This page exists to pay tribute to a great man who's shoes I will never be able to fill, and to provide a potential disambiguation to those who were searching for him and stumbled across me. If you have any questions about him, I highly encourage you to read his biography on the [NAACP LDF's website](https://www.naacpldf.org/about-us/history/jack-greenberg/).
+This page exists to pay tribute to a great man whose shoes I will never be able to fill, and to provide a potential disambiguation to those who were searching for him and stumbled across me. If you have any questions about him, I highly encourage you to read his biography on the [NAACP LDF's website](https://www.naacpldf.org/about-us/history/jack-greenberg/).
 
 Finally, I encourage anyone, and particularly those in the engineering/tech industry, to consider donating any spare income (of which software engineers generally have plenty) to any of the following wonderful organizations:
 
