@@ -1,5 +1,5 @@
-# jacklgreenberg dot com
+# jackgreenberg dot co
 
-This is my personal website. Built with Hugo. [Enjoy.](https://jackgreenberg.co)
+This is my personal website. Built with [Hugo](https://gohugo.io).
 
-Eventually I will clean things up and remove unnecessary files.
+[Enjoy!](https://www.jackgreenberg.co)
