@@ -8,7 +8,7 @@ externalLink: https://github.com/jack-greenberg/i2c2
 featured: true
 ---
 
-I wrote an implementation of the I2C protocol (inter-integrated chip) in C. It taught me a lot about writing and debugging embedded firmware.
+I wrote an [implementation of the I2C protocol](https://github.com/jack-greenberg/i2c2) (inter-integrated chip) in C. It taught me a lot about writing and debugging embedded firmware.
 
 <!--more-->
 

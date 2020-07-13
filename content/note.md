@@ -13,7 +13,7 @@ I proceeded to read more on the [LDF's website](https://www.naacpldf.org/about-u
 
 > He litigated the landmark Brown v. Board of Education case that overturned the “separate but equal” doctrine. In total, he argued forty cases before the Supreme Court including Alexander v. Holmes County Board of Education which mandated segregated school systems to desegregate “at once” and Griggs v. Duke Power Company, which prohibited relying on employment and promotion decisions on the results of tests with discriminatory impact.
 
-This man is a great example of how to use white privilege to benefit others. He knew that because of the color of his skin, he had the ability to make the predominantely white juries and judges listen to him, and was able to use that ability to lift up black voices during the civil rights era.
+This man is a great example of how to use white privilege to benefit others. He knew that because of the color of his skin, he had the ability to make the predominantly white juries and judges listen to him, and was able to use that ability to lift up black voices during the civil rights era.
 
 I think about this man who I coincidentally share a name with very often, and he has become an icon to look up to. I strive to live up to my namesake, to use my privilege to amplify the voices who too often are silenced by an oppressive state.
 

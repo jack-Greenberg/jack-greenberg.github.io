@@ -7,17 +7,17 @@ draft: false
 featured: false
 ---
 
-My first project for [Olin Electric Motorsports](https://www.olinelectricmotorsports.com) was redesigning the mission-critical brake system plausibility device. The analog circuit controls one node of the shutdown circuit on the car, helping to ensure the safety of the driver and vehicle.
+My first project for [Olin Electric Motorsports](https://www.olinelectricmotorsports.com) was redesigning the mission-critical _brake system plausibility device_. The analog circuit controls one node of the shutdown circuit on the car, helping to ensure the safety of the driver and vehicle.
 
 <!-- more -->
 
 ## How to PCB
 
-The final deliverable for this project was a PCB, or printed circuit board, which would slot into the car's low voltage box. Along with performing a critical safety check for the electrical systems during racing, the circuit also handles the brakelight by reading an analog signal from a brake pressure sensor. Understanding the project was the first--and one of the hardest--tasks I had to accomplish.
+The final deliverable for this project was a PCB, or printed circuit board, which would slot into the car's low voltage box. Along with performing a critical safety check for the electrical systems during racing, the circuit also handles activating the brakelight based on the reading of an brake pressure sensor. Understanding the project was the first--and one of the hardest--tasks I had to accomplish.
 
 ### Brake System Plausibility
 
-The brake system plausibility device (BSPD) is an analog circuit that provides a critical safety check for the car. It ensures that the motor controller isn't supplying current to the motor while the brake is being pressed. This condition is dangerous in that it means the driver has lost control of the car, and requires the car to shut down.
+The brake system plausibility device (BSPD) is an analog circuit that provides a critical safety check for the car. It ensures that the motor controller isn't supplying current to the motor while the brake is being pressed. This condition is dangerous because it means the driver has lost control of the car, and so it causes the car to shut down.
 
 In ordinary conditions, the throttle circuit (which is responsible for making the car accelerate) should prevent this from happening, but in the event that that doesn't happen, the BSPD circuit is a backup.
 
