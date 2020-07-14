@@ -5,6 +5,7 @@ title: About
 {{< img
     src="images/portrait.png"
     alt="Portrait of Jack Greenberg"
+    title="Image by Jules Brettle"
 >}}
 
 Hi there! My name is Jack Greenberg. I am an engineering student at Olin College of ~~Arts and Crafts~~ Engineering, studying electrical and computer engineering. My passions lie in firmware/embedded systems and electrical design, and I also am quite fond of web development.
@@ -19,4 +20,4 @@ After a few months in Berlin, I moved back home to L.A. and got a job at Yay Bri
 
 Please drop me a line! I’d love to chat:
 
-[j (at) jacklgreenberg (dot) com](mailto:j@jacklgreenberg.com)
+[j (at) jackgreenberg.co](mailto:j@jackgreenberg.co)

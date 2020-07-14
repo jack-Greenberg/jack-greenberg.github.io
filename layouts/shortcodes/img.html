@@ -53,13 +53,11 @@
       {{- if or (.Get "alt") (.Get "caption") }}
       alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify | plainify }}{{ end }}"
       {{- end -}}
+        title="{{ .Get "title" }}"
     />
     {{- if .Get "link" }}</a>{{ end -}}
-    {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
+    {{- if or (.Get "caption") (.Get "attr") -}}
         <figcaption>
-            {{ with (.Get "title") -}}
-                <h4>{{ . }}</h4>
-            {{- end -}}
             {{- if or (.Get "caption") (.Get "attr") -}}<p>
                 {{- .Get "caption" | markdownify -}}
                 {{- with .Get "attrlink" }}
