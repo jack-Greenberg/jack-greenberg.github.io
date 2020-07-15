@@ -50,11 +50,11 @@ This ended up being one of the most useful idioms in the library, because it all
 
 Because I2C uses open-drain/open-collector set up, it requires pull-up resistors on each line:
 
-{{< figure src="images/i2c-schematic.png" caption="I2C schematic with pull-up resistors." >}}
+{{< img src="images/i2c-schematic.png" caption="I2C schematic with pull-up resistors." >}}
 
 To develop the library, I used an Arduino, which uses an ATMega328p microcontroller, and an Analog Discovery, which is essentially a pocket-sized oscilloscope and signal interpreter. I learned about I2C using [Texas Instruments's I2C application report](https://www.ti.com/lit/an/slva704/slva704.pdf). I tested things like signal synchronization and clock frequency settings using the Analog Discovery's oscilloscope, which generated results like this:
 
-{{< figure src="images/i2c-1.png" caption="Oscilloscope reading of electrical signal: \<START>11101\<STOP>" >}}
+{{< img src="images/i2c-1.png" caption="Oscilloscope reading of electrical signal: \<START>11101\<STOP>" >}}
 
 ### Debugging
 

@@ -35,7 +35,7 @@ This was my first serious electrical engineering project. When I started, my onl
 
 The first step in a project like this is understanding the target. This took me a long time because I had very little concept of how the car worked. Over time, I picked up bits and pieces and finally began to understand what this circuit needed to do. So the next step was creating a schematic.
 
-{{<figure
+{{<img
     src="images/schematic.png"
     caption="BSPD/Brakelight circuit schematic."
 >}}
@@ -46,7 +46,7 @@ Schematics are the way electrical engineers detail the components that go on a b
 
 After finishing a schematic and getting it reviewed, I began work on the layout. The layout is the design of the actual printed circuit board (PCB). It reads the schematic to figure out what components will go on the board, and then it is the responsibility of the designer to lay out the components and the wires between them such that everything is connected and works efficiently.
 
-{{<figure
+{{<img
     src="images/layout.png"
     caption="BSPD/Brakelight circuit layout."
 >}}

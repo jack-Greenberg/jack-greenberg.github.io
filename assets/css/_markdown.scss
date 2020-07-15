@@ -109,27 +109,41 @@
 
     ul {
         list-style-type: none;
-        margin-bottom: 1em;
+        margin-top: 2em;
+        margin-bottom: 2em;
 
         & > li {
             @include paragraph-like;
+            position: relative;
+            margin-left: 1.25em;
+            margin-bottom: .5em;
 
             &::before {
                 content: '* ';
+                position: absolute;
+                top: 0;
+                left: -1.25em;
             }
         }
     }
     ol {
         counter-reset: section;
         list-style-type: none;
-        margin-bottom: 1em;
+        margin-top: 2em;
+        margin-bottom: 2em;
 
         & > li {
             @include paragraph-like;
+            position: relative;
+            margin-left: 2em;
+            margin-bottom: .5em;
 
             &::before {
                 content: counter(section) ". ";
                 counter-increment: section;
+                position: absolute;
+                top: 0;
+                left: -2em;
             }
         }
     }
@@ -254,6 +268,9 @@
             width: 100%;
             display: block;
             text-align: center;
+        }
+        a:hover {
+            background-color: unset;
         }
     }
 

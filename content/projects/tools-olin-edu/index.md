@@ -14,7 +14,7 @@ For the app I used a software stack I've grown to love: Flask for the back-end a
 
 The main feature of the site is a single page application that acts as a checklist for students training on a given machine:
 
-{{<figure
+{{<img
     src="images/checklist.png"
     caption="Mobile view of lathe training checklist."
 >}}
@@ -27,7 +27,7 @@ One big feature that the shop requested was better accountability of who does wh
 
 All administration tasks are accessible from another single page application for admins:
 
-{{<figure
+{{<img
     src="images/admin.png"
     caption="Admin view that allows administrators to add trainers."
 >}}
