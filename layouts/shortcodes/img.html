@@ -1,5 +1,8 @@
 {{/* get file that matches the filename as specified as src="" in shortcode */}}
-{{ $src := resources.GetMatch (.Get "src") }}
+{{ $src := .Page.Resources.GetMatch (.Get "src") }}
+
+{{ $baseWidth := $src.Width }}
+
 {{/* set image sizes, these are hardcoded for now, x dictates that images are resized to this width */}}
 
 {{ $tinyw := default "500x" }}
@@ -22,9 +25,7 @@
 {{ $large := .Scratch.Get "large" }}
 
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
-    {{- if .Get "link" -}}
-        <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
-    {{- end }}
+    <a href="{{ .Get "src" }}">
     <img
       loading="lazy"
       {{ with .Get "sizes" }}
@@ -55,7 +56,7 @@
       {{- end -}}
         title="{{ .Get "title" }}"
     />
-    {{- if .Get "link" }}</a>{{ end -}}
+    </a>
     {{- if or (.Get "caption") (.Get "attr") -}}
         <figcaption>
             {{- if or (.Get "caption") (.Get "attr") -}}<p>

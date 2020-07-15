@@ -2,7 +2,7 @@
 title: About
 ---
 
-{{< img
+{{<img
     src="images/portrait.png"
     alt="Portrait of Jack Greenberg"
     title="Image by Jules Brettle"
