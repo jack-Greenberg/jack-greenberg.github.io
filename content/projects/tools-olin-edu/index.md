@@ -10,7 +10,7 @@ During the spring of 2020, I worked for the machine shop at Olin to design and b
 
 The platform that I built provides students and staff a way to sign up for trainings and keep track of their progress, and would allow the machine shop staff to approve trainees and keep tabs on who is authorized to use which tools.
 
-For the app I used a software stack I've grown to love: Flask for the back-end and routing, ReactJS for the front-end, and PostgresQL+SQLAlchemy for a database and middleware. I've grown comfortable with this stack, and find it quite powerful.
+For the app I used a software stack I've grown to love: Flask for the back-end and routing, ReactJS for the front-end, and PostgreSQL+SQLAlchemy for a database and middleware. I've grown comfortable with this stack, and find it quite powerful.
 
 The main feature of the site is a single page application that acts as a checklist for students training on a given machine:
 
