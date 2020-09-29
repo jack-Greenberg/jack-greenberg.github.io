@@ -33,7 +33,7 @@
                     <div class="List">
                         <h3 class="List__title">{{ .Key }}</h3>
                         <ul class="List__element">
-                            {{ range .Pages.ByTitle }}
+                            {{ range .Pages.ByDate.Reverse }}
                             <li class="List__item"><a href="{{ .Permalink | relURL }}">{{ .Title }}</a> {{ if .Params.draft }}<span class="draft-label">Draft</span>{{ end }}</li>
                             {{ end }}
                         </ul>
