@@ -38,6 +38,8 @@ There were a handful of decisions that were made to improve the performance and 
 
 Additionally, we set up a number of failsafes that would prevent deadlocks, including a timeout on the cache lock, just to make sure that a request never failed due to a fault in a single service.
 
+One option we considered while designing the system was actually moving all permissions to a Redis database instead of having them fetched per HTTP request. While potentially memory-intensive, this option would be beneficial in that it would prevent race conditions with different microservices making simultaneous requests, and instead just allow the services to make requests to Redis directly, thus eliminating HTTP traffic in that stage entirely.
+
 ## Looking Back
 
 This was my first real industry software engineering project, and I learned a lot! It was a great opportunity to apply concepts I learned in my _Software Systems_ class like mutexes and memory storage. It also taught me a lot about software design patterns and writing efficient software.
