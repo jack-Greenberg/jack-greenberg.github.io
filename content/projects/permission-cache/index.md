@@ -15,7 +15,7 @@ Indico's API is a microservices architecture, which means that they have a bunch
 
 [^1]: "If I remember correctly"
 
-The need for a permission cache came from the fact that when any of these services were used (i.e. they recieved an HTTP request), each of them _individually_ would have to make sure that the request had the correct permissions on the data that was being used.
+The need for a permission cache came from the fact that when any of these services were used (i.e. they received an HTTP request), each of them _individually_ would have to make sure that the request had the correct permissions on the data that was being used.
 
 And in order to verify those permissions, the service in question would have to make an _additional_ HTTP request to a central service that was responsible for verifying the permissions. So for each request, there would be almost double the amount of HTTP traffic, and for large, involved requests, that could mean a very heavy load for the whole system.
 
