@@ -1,23 +1,27 @@
 ---
 title: About
+image: images/portrait.png
 ---
 
-{{<img
-    src="images/portrait.png"
-    alt="Portrait of Jack Greenberg"
-    title="Image by Jules Brettle"
->}}
+Hi there! My name is Jack Greenberg
+I am an engineering student at [Olin College](http://olin.edu) of ~~Arts and Crafts~~ Engineering, studying __electrical and computer engineering__.
+I am most passionate about firmware/embedded systems and computer networking.
 
-Hi there! My name is Jack Greenberg. I am an engineering student at Olin College of ~~Arts and Crafts~~ Engineering, studying electrical and computer engineering. My passions lie in firmware/embedded systems and electrical design, and I also am quite fond of web development.
+At Olin I am an electrical design lead for our Formula SAE team [Olin Electric Motorsports](https://www.olinelectricmotorsports.com) working on a brand-new [telemetry system](/projects/telemetry).
 
-At Olin I am an electrical design lead for the Formula SAE team, [Olin Electric Motorsports](https://olinelectricmotorsports.com), and I am working for the machine shop to build a [brand new website](/projects/tools-olin-edu) to manage machine trainings.
+I've also worked at [Indico](https://indico.io) as a software engineer, creating a [secure permissioning agent](/projects/permission-cache) to decrease network traffic between their microservices, and upgraded their whole coroutine infrastructure with no integration issues.
 
-Before coming to Olin I opted to take a gap year, partly due to burnout after overloading my senior year with math classes. I decided to move from L.A. to Berlin, and I got a internship as a data architect for the Norwegian Refugee Council.
+I got my start with computers as a web developer working at [Yay Brigade](https://yaybrigade.com) over my __gap year__.
+I also spent time living in Berlin working as a data architect for the [Norwegian Refugee Council](https://www.nrc.no/).
 
-After a few months in Berlin, I moved back home to L.A. and got a job at Yay Brigade as a web developer. I worked on projects ranging from web apps to monitor our clients’ website status (up or not) to implementing the design and identity for a new synagogue in L.A. While at Yay Brigade I also taught myself Python and worked on building a content management system with Flask and MongoDB.
+These days, I am spending my time learning about bootloaders, digital signal processing, and Rust.
 
 ---
 
-Please drop me a line! I’d love to chat:
+## Contact
 
-[j (at) jackgreenberg.co](mailto:j@jackgreenberg.co)
+Please drop me a line! I’d love to chat.
+
+Email: &nbsp;&nbsp;&nbsp; [j (at) jackgreenberg.co](mailto:j@jackgreenberg.co)\
+Github: &nbsp;&nbsp; [@jack-greenberg](https://github.com/jack-greenberg)\
+LinkedIn: &nbsp;[jack-l-greenberg](https://linkedin.com/in/jack-l-greenberg)

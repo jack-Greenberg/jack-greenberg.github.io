@@ -18,6 +18,22 @@
                 right: 0;
             }
         }
+
+        .page-image {
+            height: 4em;
+            position: relative;
+            display: block;
+            margin: .5em auto 0em;
+            z-index: -1;
+            clip-path: circle();
+
+            @media only screen and (min-width: 750px) {
+                margin: 0;
+                position: absolute;
+                top: -2.75em;
+                right: -25%;
+            }
+        }
     }
     h2 {
         @include h2-like;

@@ -3,12 +3,15 @@
 {{ end }}
 
 {{ define "main" }}
-    <div class="Page">
+    <div class="Page {{ .Title }}">
         {{ partial "header" . }}
         <div class="vertical-flex">
             <main class="Content  vertical-flex__fill  PageWidth">
                 <h1>
                     {{ .Title }}
+                    {{ if .Params.image }}
+                        <img class="page-image" src="{{ .Params.image }}" />
+                    {{ end }}
                 </h1>
 
                 <!-- Markdown -->
