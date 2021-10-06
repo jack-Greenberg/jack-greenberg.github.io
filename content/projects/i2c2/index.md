@@ -5,7 +5,7 @@ year: 2020
 image: "images/main.svg"
 draft: false
 externalLink: https://github.com/jack-greenberg/i2c2
-featured: true
+featured: false
 ---
 
 I wrote an [implementation of the I2C protocol](https://github.com/jack-greenberg/i2c2) (inter-integrated chip) in C. It taught me a lot about writing and debugging embedded firmware.
